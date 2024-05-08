@@ -10,7 +10,10 @@ export default function Header() {
     <>
       <header className="p-5 container">
         <div className="flex items-center flex-wrap lg:flex-row lg:flex-1 justify-between">
-          <Bars3Icon className="w-7 lg:hidden text-red-600" onClick={hamburgerMenuHandler} />
+          <Bars3Icon
+            className="w-7 lg:hidden text-red-600"
+            onClick={hamburgerMenuHandler}
+          />
           <Logo />
           <SearchBar />
           <BasketLoginNav />
