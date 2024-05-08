@@ -1,18 +1,25 @@
-import { ChevronLeftIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronLeftIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
 import useInput from "../hooks/useInput";
 import { productsData } from "../data/data";
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import SearchProduct from "./SearchProduct";
+import NotFound from "./NotFound";
 
 export default function SearchBar() {
   const [value, setValue] = useInput();
   const [products] = useState(productsData);
   const search = useMemo(() => {
     if (value.length) {
-      return products.filter((item) => item.name.includes(value.toLowerCase())).slice(0, 3);
+      return products
+        .filter((item) => item.name.includes(value.toLowerCase()))
+        .slice(0, 3);
     }
   }, [products, value]);
+
   return (
     <div className="relative lg:w-1/2 mt-3 w-full">
       <input
@@ -27,13 +34,19 @@ export default function SearchBar() {
       {value.length ? (
         <div className="absolute w-full bg-gray-50 shadow-2xl h-auto mt-2 z-50 rounded-2xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 p-3">
-            {search.map((item) => (
-              <SearchProduct key={item.id} {...item} />
-            ))}
+            {search.length ? (
+              search.map((item) => <SearchProduct key={item.id} {...item} />)
+            ) : (
+              <NotFound />
+            )}
           </div>
           <div className="flex flex-wrap gap-2 px-3 mb-3">
             {search.map((item) => (
-              <Link to="" className="bg-white rounded-xl px-2 py-1 flex items-center text-sm" key={item.id}>
+              <Link
+                to=""
+                className="bg-white rounded-xl px-2 py-1 flex items-center text-sm"
+                key={item.id}
+              >
                 {item.name} <ChevronLeftIcon className="w-3 mx-1" />
               </Link>
             ))}
