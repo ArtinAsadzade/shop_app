@@ -69,10 +69,26 @@ export const navData = [
 ];
 
 export const footerItemsData = [
-  { id: 1, title: "پرداخت درب منزل", img: "../../public/FooterImg/cash-on-delivery.svg" },
-  { id: 2, title: "ضمانت بازگشت کالا", img: "../../public/FooterImg/days-return.svg" },
-  { id: 3, title: "تحویل سریع", img: "../../public/FooterImg/express-delivery.svg" },
-  { id: 4, title: "ضمانت اصل بودن", img: "../../public/FooterImg/original-products.svg" },
+  {
+    id: 1,
+    title: "پرداخت درب منزل",
+    img: "../../public/FooterImg/cash-on-delivery.svg",
+  },
+  {
+    id: 2,
+    title: "ضمانت بازگشت کالا",
+    img: "../../public/FooterImg/days-return.svg",
+  },
+  {
+    id: 3,
+    title: "تحویل سریع",
+    img: "../../public/FooterImg/express-delivery.svg",
+  },
+  {
+    id: 4,
+    title: "ضمانت اصل بودن",
+    img: "../../public/FooterImg/original-products.svg",
+  },
 ];
 
 export const linksData = [
@@ -84,8 +100,16 @@ export const linksData = [
 ];
 
 export const socialLinksData = [
-  { id: 1, img: "../../public/SocialImg/telegram-icon-2048x1725-i4kw83ca.png", link: "" },
-  { id: 2, img: "../../public/SocialImg/whatsapp_logo_icon_144742.png", link: "" },
+  {
+    id: 1,
+    img: "../../public/SocialImg/telegram-icon-2048x1725-i4kw83ca.png",
+    link: "",
+  },
+  {
+    id: 2,
+    img: "../../public/SocialImg/whatsapp_logo_icon_144742.png",
+    link: "",
+  },
   { id: 3, img: "../../public/SocialImg/87390.png", link: "" },
 ];
 export const namadData = [
@@ -120,3 +144,5 @@ export const orderedData = [
   { id: 5, title: "جدیدترین" },
   { id: 6, title: "پربازدیدترین" },
 ];
+
+export const showNavBarData = false;
