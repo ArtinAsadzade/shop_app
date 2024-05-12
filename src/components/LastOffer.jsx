@@ -12,11 +12,11 @@ export default function LastOffer() {
       </div>
       <div className="xl:flex">
         <div className="sm:flex xl:w-1/3 my-8 w-auto">
-          <img src="../../public/images/samsunTablet.webp" alt="samsun tablet" className="sm:w-1/2 xl:w-full w-full rounded-xl" />
-          <img src="../../public/images/a34.webp" alt="a34" className="sm:w-1/2 xl:hidden w-full rounded-xl" />
+          <img src="/images/samsunTablet.webp" alt="samsun tablet" className="sm:w-1/2 xl:w-full w-full rounded-xl" />
+          <img src="/images/a34.webp" alt="a34" className="sm:w-1/2 xl:hidden w-full rounded-xl" />
         </div>
         <div className="xl:w-2/3 w-full border-2 border-gray-300 bg-white rounded-xl justify-center md:flex md:items-center md:flex-wrap">
-          <img src="../../public/images/laptop.webp" alt="" className="rounded-md md:w-1/3 " />
+          <img src="/images/laptop.webp" alt="" className="rounded-md md:w-1/3 " />
           <div className="md:w-2/3 text-center p-3">
             <div className="mb-8">
               <h3 className="text-3xl">LapTop</h3>
