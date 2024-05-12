@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -14,25 +14,20 @@ export default function Slider() {
     { id: 3, src: "/Slider/4.jpg" },
   ]);
 
-  const progressCircle = useRef(null);
-  const onAutoplayTimeLeft = (progress) => {
-    progressCircle.current.style.setProperty("--progress", 1 - progress);
-  };
-
   return (
     <div className="container w-full my-10 m-auto cursor-pointer hidden lg:block">
       <Swiper
         spaceBetween={30}
         centeredSlides
+        loop
         autoplay={{
-          delay: 10000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
         }}
         modules={[Autoplay, Pagination, Navigation]}
-        onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper h-[350px]"
       >
         {sliderImages.map((item) => (
@@ -40,9 +35,6 @@ export default function Slider() {
             <img className="rounded-md h-full md:rounded-3xl md:px-2 object-cover" key={item.id} src={item.src} alt="banner" />
           </SwiperSlide>
         ))}
-        <div className="autoplay-progress" slot="container-end">
-          <svg viewBox="0 0 48 48" ref={progressCircle}></svg>
-        </div>
       </Swiper>
     </div>
   );
