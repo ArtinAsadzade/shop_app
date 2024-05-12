@@ -4,7 +4,7 @@ export const productsData = [
     name: "ایرپاد",
     price: 3500000,
     offerPrice: 3200000,
-    count: 0,
+    count: 2,
     img: "/images/airpod.jpg",
   },
   {
