@@ -1,20 +1,49 @@
-import { ForwardIcon, BackwardIcon } from "@heroicons/react/24/outline";
+import { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 export default function Slider() {
+  const [sliderImages] = useState([
+    { id: 1, src: "/Slider/slide1.gif" },
+    { id: 2, src: "/Slider/1.jpg" },
+    { id: 3, src: "/Slider/4.jpg" },
+  ]);
+
+  const progressCircle = useRef(null);
+  const onAutoplayTimeLeft = (progress) => {
+    progressCircle.current.style.setProperty("--progress", 1 - progress);
+  };
+
   return (
-    <div className="container w-full p-2 lg:px-10 m-auto cursor-pointer hidden lg:block">
-      <div className="relative">
-        <img className="rounded-md md:rounded-3xl md:px-2 " src="/images/slide1.gif" alt="banner" />
-        <div className="w-10 h-10 bg-white rounded-full bottom-5 right-7 absolute">
-          <ForwardIcon className="w-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+    <div className="container w-full my-10 m-auto cursor-pointer hidden lg:block">
+      <Swiper
+        spaceBetween={30}
+        centeredSlides
+        autoplay={{
+          delay: 10000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay, Pagination, Navigation]}
+        onAutoplayTimeLeft={onAutoplayTimeLeft}
+        className="mySwiper h-[350px]"
+      >
+        {sliderImages.map((item) => (
+          <SwiperSlide key={item.id}>
+            <img className="rounded-md h-full md:rounded-3xl md:px-2 object-cover" key={item.id} src={item.src} alt="banner" />
+          </SwiperSlide>
+        ))}
+        <div className="autoplay-progress" slot="container-end">
+          <svg viewBox="0 0 48 48" ref={progressCircle}></svg>
         </div>
-        <div className="w-10 h-10 bg-white rounded-full bottom-5 right-20 absolute">
-          <BackwardIcon className="w-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-        </div>
-      </div>
-      <div className="w-full py-2 m-auto my-10 hidden lg:block">
-        <img className="rounded-xl" src="/images/banner.jpg" alt="banner" />
-      </div>
+      </Swiper>
     </div>
   );
 }
