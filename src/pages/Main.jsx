@@ -1,10 +1,9 @@
-import {} from "@heroicons/react/24/outline";
 import Slider from "../components/HeroSlider";
-import LastOffer from "../components/LastOffer";
-import Offers from "../components/Offers";
-import AmazingOffer from "../components/AmzingOffer";
-import Header from "../components//Header";
-import Footer from "./../components/Footer";
+import LastOffer from "../components/Product/LastOffer";
+import Offers from "../components/Product/Offers";
+import AmazingOffer from "../components/Product/AmzingOffer";
+import Header from "../components/Header/Header";
+import Footer from "./../components/Footer/Footer";
 
 export default function Main() {
   return (
