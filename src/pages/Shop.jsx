@@ -1,5 +1,5 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
 import CategoryItem from "../components/CategoryItem";
 import useCategory from "../hooks/useCategory";
 import useBrand from "../hooks/useBrand";
@@ -7,7 +7,7 @@ import BrandItem from "../components/BrandItem";
 import { useState } from "react";
 import { orderedData } from "../data/data";
 import useProducts from "../hooks/useProducts";
-import Product from "../components/Product";
+import Product from "../components/Product/Product";
 
 export default function Shop() {
   const [categorys] = useCategory();
@@ -20,7 +20,9 @@ export default function Shop() {
       <div className="mx-auto px-3">
         <div className="bg-white shadow-xl my-5 lg:my-10 rounded-xl md:rounded-2xl p-3 md:p-5">
           <div className="bg-white mx-5 rounded-2xl mb-4 grid">
-            <h2 className="text-xl font-semibold text-gray-800">جستجو محصولات</h2>
+            <h2 className="text-xl font-semibold text-gray-800">
+              جستجو محصولات
+            </h2>
           </div>
           <div className="md:flex">
             <div className="md:w-4/12 lg:w-3/12">
@@ -42,7 +44,10 @@ export default function Shop() {
                 <div className="opacity-90 text-sm mb-2">مرتب سازی:</div>
                 <div className="flex flex-wrap gap-5 justify-start items-center">
                   {ordered.map((item) => (
-                    <p className="opacity-70 text-xs hover:text-red-500 transition cursor-pointer" key={item.id}>
+                    <p
+                      className="opacity-70 text-xs hover:text-red-500 transition cursor-pointer"
+                      key={item.id}
+                    >
                       {item.title}
                     </p>
                   ))}
