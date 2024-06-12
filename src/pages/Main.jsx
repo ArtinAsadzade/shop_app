@@ -4,8 +4,15 @@ import Offers from "../components/Product/Offers";
 import AmazingOffer from "../components/Product/AmzingOffer";
 import Header from "../components/Header/Header";
 import Footer from "./../components/Footer/Footer";
+import { UsersData, productsData } from "./../data/data";
+import { useEffect } from "react";
 
 export default function Main() {
+  useEffect(() => {
+    localStorage.setItem("usersData", JSON.stringify(UsersData));
+    localStorage.setItem("productsData", JSON.stringify(productsData));
+  }, []);
+  console.log(UsersData);
   return (
     <>
       <Header />

@@ -1,3 +1,13 @@
+import {
+  BuildingStorefrontIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+  EnvelopeIcon,
+  ExclamationCircleIcon,
+  HomeIcon,
+  InboxArrowDownIcon,
+  UserIcon,
+} from "@heroicons/react/24/outline";
+
 export const productsData = [
   {
     id: 4,
@@ -146,3 +156,144 @@ export const orderedData = [
 ];
 
 export const showNavBarData = false;
+
+export const adminPageLinksData = [
+  {
+    id: 1,
+    title: "Dashboard",
+    infos: [
+      {
+        id: 1,
+        name: "Home",
+        link: "home",
+        icon: <HomeIcon />,
+        category: "dashboard",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Quick Menu",
+    infos: [
+      {
+        id: 1,
+        name: "Users",
+        link: "users",
+        icon: <UserIcon />,
+        category: "quickmenu",
+      },
+      {
+        id: 2,
+        name: "Admins",
+        link: "admins",
+        icon: <UserIcon />,
+        category: "quickmenu",
+      },
+      {
+        id: 3,
+        name: "Products",
+        link: "products",
+        icon: <BuildingStorefrontIcon />,
+        category: "quickmenu",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Notification",
+    infos: [
+      {
+        id: 1,
+        name: "Mail",
+        link: "mail",
+        icon: <EnvelopeIcon />,
+        category: "notification",
+      },
+      {
+        id: 2,
+        name: "Feedback",
+        link: "feedback",
+        icon: <InboxArrowDownIcon />,
+        category: "notification",
+      },
+      {
+        id: 3,
+        name: "Message",
+        link: "message",
+        icon: <ChatBubbleOvalLeftEllipsisIcon />,
+        category: "notification",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Staff",
+    infos: [
+      {
+        id: 1,
+        name: "Manage",
+        link: "manage",
+        icon: <HomeIcon />,
+        category: "staff",
+      },
+      {
+        id: 2,
+        name: "Reports",
+        link: "reports",
+        icon: <ExclamationCircleIcon />,
+        category: "staff",
+      },
+    ],
+  },
+];
+
+export const UsersData = [
+  {
+    id: 1,
+    userName: "artin",
+    password: "12345",
+    email: "artin@gmail.com",
+    profile: "/Profile/artin.jpg",
+    perm: 2,
+  },
+  {
+    id: 2,
+    userName: "amir",
+    password: "12345",
+    email: "amir@gmail.com",
+    profile: "/Profile/github-250.png",
+    perm: 1,
+  },
+  {
+    id: 3,
+    userName: "mamad",
+    password: "12345",
+    email: "mamad@gmail.com",
+    profile: "",
+    perm: 0,
+  },
+  {
+    id: 4,
+    userName: "asghar",
+    password: "12345",
+    email: "amir@gmail.com",
+    profile: "",
+    perm: 1,
+  },
+  {
+    id: 5,
+    userName: "ali",
+    password: "12345",
+    email: "ali@gmail.com",
+    profile: "",
+    perm: 0,
+  },
+  {
+    id: 6,
+    userName: "Test User",
+    password: "123",
+    email: "TestUser@gmail.com",
+    profile: "",
+    perm: 1,
+  },
+];
