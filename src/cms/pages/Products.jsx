@@ -2,7 +2,7 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import ProductsItem from "../components/ProductsItem";
 import { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { ProductDataContext } from "../context/ProductDataContext";
+import { ProductDataContext } from "./../../context/ProductDataContext";
 
 export default function Products() {
   const { products } = useContext(ProductDataContext);
