@@ -1,6 +1,6 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useContext, useState } from "react";
-import { UserAccContext } from "../context/UserAccContext";
+import { UserAccContext } from "./../../context/UserAccContext";
 import YesOrNo from "./YesOrNo";
 
 export default function UsersItem(props) {
