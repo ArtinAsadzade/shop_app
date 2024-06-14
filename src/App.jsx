@@ -1,5 +1,5 @@
 import { useRoutes } from "react-router-dom";
-import { routes } from "./router";
+import { routers } from "./routes";
 import UserProvider from "./context/UserContext";
 import ShowSideBarProvider from "./context/ShowSideBarContext";
 import ShowYesOrNoProvider from "./context/ShowYesOrNoContext";
@@ -8,10 +8,7 @@ import UserAccProvider from "./context/UserAccContext";
 import ProductDataProvider from "./context/ProductDataContext";
 
 function App() {
-  // const { userFind } = useContext(UserAccContext);
-
-  const router = useRoutes(routes);
-  // localStorage.setItem("user", JSON.stringify(userFind));
+  const router = useRoutes(routers);
 
   return (
     <UserProvider>
