@@ -12,7 +12,7 @@ export default function Main() {
     localStorage.setItem("usersData", JSON.stringify(UsersData));
     localStorage.setItem("productsData", JSON.stringify(productsData));
   }, []);
-  console.log(UsersData);
+
   return (
     <>
       <Header />
