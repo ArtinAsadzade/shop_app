@@ -1,6 +1,6 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useContext, useState } from "react";
-import { ProductDataContext } from "../context/ProductDataContext";
+import { ProductDataContext } from "./../../context/ProductDataContext";
 import YesOrNo from "./YesOrNo";
 
 export default function ProductsItem(props) {
