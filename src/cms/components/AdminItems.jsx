@@ -1,7 +1,7 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useContext, useState } from "react";
-import { UsersDataContext } from "../context/UsersDataContext";
-import { UserAccContext } from "../context/UserAccContext";
+import { UsersDataContext } from "./../../context/ProductDataContext";
+import { UserAccContext } from "./../../context/UserAccContext";
 import YesOrNo from "./YesOrNo";
 
 export default function AdminItems(props) {

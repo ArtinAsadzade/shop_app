@@ -1,12 +1,10 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "./../../context/UserContext";
 import YesOrNo from "./../components/YesOrNo";
 import { userLogin } from "./../Utils";
-import { UserAccContext } from "../context/UserAccContext";
+import { UserAccContext } from "./../../context/UserAccContext";
 import { useEffect } from "react";
-import UsersData from "../data/UsersData";
-import { productsData } from "../data/ProductsData";
 
 // JSON.parse(localStorage.getItem("user"))
 
@@ -28,6 +26,7 @@ export default function Login() {
 
   const submitHandler = () => {
     if (isLogin) {
+      localStorage.setItem("user", JSON.stringify(userFind));
       navigate("/home");
     }
   };
