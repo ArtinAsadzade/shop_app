@@ -3,8 +3,8 @@ import {
   ArrowLeftStartOnRectangleIcon,
   Bars3Icon,
 } from "@heroicons/react/24/outline";
-import { ShowSideBarContext } from "./../context/ShowSideBarContext";
-import { UserAccContext } from "../context/UserAccContext";
+import { ShowSideBarContext } from "./../../context/ShowSideBarContext";
+import { UserAccContext } from "./../../context/UserAccContext";
 import YesOrNo from "./YesOrNo";
 import { useNavigate } from "react-router-dom";
 
