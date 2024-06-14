@@ -2,7 +2,7 @@ import { PlusIcon } from "@heroicons/react/24/outline";
 import { Link, Outlet } from "react-router-dom";
 import UsersItem from "../components/UsersItem";
 import { useContext } from "react";
-import { UsersDataContext } from "../context/UsersDataContext";
+import { UsersDataContext } from "./../../context/UsersDataContext";
 
 export default function Users() {
   const { users } = useContext(UsersDataContext);
