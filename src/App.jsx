@@ -6,22 +6,24 @@ import ShowYesOrNoProvider from "./context/ShowYesOrNoContext";
 import UsersDataProvider from "./context/UsersDataContext";
 import UserAccProvider from "./context/UserAccContext";
 import ProductDataProvider from "./context/ProductDataContext";
+import Page404 from "./cms/pages/Page404";
 
 function App() {
   const router = useRoutes(routers);
 
   return (
-    <UserProvider>
-      <ShowYesOrNoProvider>
-        <UsersDataProvider>
-          <UserAccProvider>
-            <ProductDataProvider>
-              <ShowSideBarProvider>{router}</ShowSideBarProvider>
-            </ProductDataProvider>
-          </UserAccProvider>
-        </UsersDataProvider>
-      </ShowYesOrNoProvider>
-    </UserProvider>
+    // <UserProvider>
+    //   <ShowYesOrNoProvider>
+    //     <UsersDataProvider>
+    //       <UserAccProvider>
+    //         <ProductDataProvider>
+    //           <ShowSideBarProvider>{router}</ShowSideBarProvider>
+    //         </ProductDataProvider>
+    //       </UserAccProvider>
+    //     </UsersDataProvider>
+    //   </ShowYesOrNoProvider>
+    // </UserProvider>
+    <Page404 />
   );
 }
 
