@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { ShowSideBarContext } from "./../../context/ShowSideBarContext";
 import { UserAccContext } from "./../../context/UserAccContext";
-import YesOrNo from "./YesOrNo";
+import YesOrNo from "../../components/YesOrNo";
 import { useNavigate } from "react-router-dom";
 
 export default function TopBar() {
