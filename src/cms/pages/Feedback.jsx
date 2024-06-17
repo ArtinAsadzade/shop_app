@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
-import YesOrNo from "../components/YesOrNo";
+import YesOrNo from "../../components/YesOrNo";
 
 export default function Feedback() {
   const [show, setShow] = useState(false);
