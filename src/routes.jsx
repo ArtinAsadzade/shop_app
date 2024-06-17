@@ -12,7 +12,7 @@ import PrivateRouts from "./components/PrivateRouts";
 import Feedback from "./cms/pages/Feedback";
 import Manage from "./cms/pages/Manage";
 import NewProduct from "./cms/components/NewProduct";
-import Login from "./cms/pages/Login";
+import Login from "./pages/Login";
 
 export const routers = [
   { path: "/", element: <Main /> },

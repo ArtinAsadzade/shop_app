@@ -6,24 +6,34 @@ import ShowYesOrNoProvider from "./context/ShowYesOrNoContext";
 import UsersDataProvider from "./context/UsersDataContext";
 import UserAccProvider from "./context/UserAccContext";
 import ProductDataProvider from "./context/ProductDataContext";
-import Page404 from "./cms/pages/Page404";
+import { UsersData, productsData } from "./data/data";
+import { useEffect } from "react";
 
 function App() {
   const router = useRoutes(routers);
 
+  useEffect(() => {
+    if (
+      !localStorage.getItem("usersData") &&
+      !localStorage.getItem("productsData")
+    ) {
+      localStorage.setItem("usersData", JSON.stringify(UsersData));
+      localStorage.setItem("productsData", JSON.stringify(productsData));
+    }
+  }, []);
+
   return (
-    // <UserProvider>
-    //   <ShowYesOrNoProvider>
-    //     <UsersDataProvider>
-    //       <UserAccProvider>
-    //         <ProductDataProvider>
-    //           <ShowSideBarProvider>{router}</ShowSideBarProvider>
-    //         </ProductDataProvider>
-    //       </UserAccProvider>
-    //     </UsersDataProvider>
-    //   </ShowYesOrNoProvider>
-    // </UserProvider>
-    <Page404 />
+    <UserProvider>
+      <ShowYesOrNoProvider>
+        <UsersDataProvider>
+          <UserAccProvider>
+            <ProductDataProvider>
+              <ShowSideBarProvider>{router}</ShowSideBarProvider>
+            </ProductDataProvider>
+          </UserAccProvider>
+        </UsersDataProvider>
+      </ShowYesOrNoProvider>
+    </UserProvider>
   );
 }
 
