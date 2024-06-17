@@ -1,7 +1,7 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useContext, useState } from "react";
 import { UserAccContext } from "./../../context/UserAccContext";
-import YesOrNo from "./YesOrNo";
+import YesOrNo from "../../components/YesOrNo";
 
 export default function UsersItem(props) {
   const [show, setShow] = useState(false);
