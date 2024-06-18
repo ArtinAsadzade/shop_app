@@ -6,11 +6,11 @@ import YesOrNo from "./YesOrNo";
 
 export default function AdminItems(props) {
   const [show, setShow] = useState(false);
-  const { userFind } = useContext(UserAccContext);
+  const { userAcc } = useContext(UserAccContext);
   const { Users, setUsers } = useContext(UsersDataContext);
 
   const deleteUserHandler = () => {
-    if (userFind.id === props.id) {
+    if (userAcc.id === props.id) {
       setShow((prevState) => (prevState = !prevState));
     } else {
       setUsers(Users.filter((item) => item.id !== props.id));
@@ -50,7 +50,7 @@ export default function AdminItems(props) {
           <button
             href="#"
             className="font-medium text-gray-500 mx-2 hover:underline"
-            onClick={userFind?.id !== props?.id && openYesOrNoModal}
+            onClick={userAcc?.id !== props?.id && openYesOrNoModal}
           >
             <TrashIcon className="w-5" />
           </button>
