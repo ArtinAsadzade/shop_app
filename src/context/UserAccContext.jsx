@@ -6,14 +6,14 @@ export const UserAccContext = createContext();
 
 export default function UserAccProvider({ children }) {
   const { userName, userPassword } = useContext(UserContext);
-  let userFind = UsersData.find(
+  let userAcc = UsersData.find(
     (user) =>
       userPassword === user.password &&
       (user.gmail === userName || user.userName === userName)
   );
 
   return (
-    <UserAccContext.Provider value={{ userFind }}>
+    <UserAccContext.Provider value={{ userAcc }}>
       {children}
     </UserAccContext.Provider>
   );
