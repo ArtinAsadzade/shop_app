@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 export default function TopBar() {
   const [show, setShow] = useState(false);
   const { setShowSideBar } = useContext(ShowSideBarContext);
-  const { userFind } = useContext(UserAccContext);
+  const { userAcc } = useContext(UserAccContext);
   const navigate = useNavigate();
 
   const showHamburgerHandler = () => {
@@ -54,7 +54,7 @@ export default function TopBar() {
             className="w-5 md:w-8 text-black cursor-pointer mx-2"
           />
           <img
-            src={userFind.profile || "/Profile/Default.jpg"}
+            src={userAcc.profile || "/Profile/Default.jpg"}
             alt="Profile Pic"
             className="bg-black rounded-full w-8 md:w-10 mx-2 cursor-pointer"
           />
