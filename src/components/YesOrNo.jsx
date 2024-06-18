@@ -8,18 +8,18 @@ export default function YesOrNo({ title, desc, func, button, show, setShow }) {
   const hideQuest = () => {
     setShow((prevState) => (prevState = !prevState));
   };
-
+  console.log(show);
   useEffect(() => {
     if (show) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY = "hidden";
     } else {
-      document.body.style.overflow = "scroll";
+      document.body.style.overflowY = "scroll";
     }
   }, [show]);
 
   return createPortal(
     <div
-      className={`w-full h-screen fixed top-0 left-1/2 right-1/2 -translate-x-1/2  backdrop-blur-sm flex justify-center items-center overflow-y-visible  transition-all duration-500  ${
+      className={`w-full h-screen fixed top-0 z-50 left-0  backdrop-blur-sm flex justify-center items-center overflow-y-visible  transition-all duration-500  ${
         show ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
     >
@@ -37,7 +37,7 @@ export default function YesOrNo({ title, desc, func, button, show, setShow }) {
               <div className="grid grid-cols-2 w-full gap-2">
                 <div>
                   <button
-                    className="inline-flex justify-center w-full px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-700"
+                    className="inline-flex justify-center w-full px-2 py-1.5 text-xs font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-200 focus:ring-4 focus:outline-none focus:ring-gray-700"
                     onClick={handleClick}
                   >
                     Yes

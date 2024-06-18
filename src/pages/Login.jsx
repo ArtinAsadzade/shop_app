@@ -52,8 +52,8 @@ export default function Login() {
   return (
     <>
       <YesOrNo
-        title={`Dont Change Login Value !!!`}
-        desc={`UserName: Test User || Pass: 123`}
+        title={`میتونید با کاربر تست وارد بشید (ادمین)`}
+        desc={`نام کاربری: Test User || رمز عبور: 123`}
         button={false}
         show={show}
         setShow={setShow}
