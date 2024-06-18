@@ -4,15 +4,15 @@ import CategoryItem from "../components/CategoryItem";
 import useCategory from "../hooks/useCategory";
 import useBrand from "../hooks/useBrand";
 import BrandItem from "../components/BrandItem";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { orderedData } from "../data/data";
-import useProducts from "../hooks/useProducts";
 import Product from "../components/Product/Product";
+import { ProductDataContext } from "../context/ProductDataContext";
 
 export default function Shop() {
   const [categorys] = useCategory();
   const [brands] = useBrand();
-  const [products] = useProducts();
+  const { products } = useContext(ProductDataContext);
   const [ordered] = useState(orderedData);
   return (
     <>

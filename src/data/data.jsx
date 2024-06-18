@@ -112,15 +112,9 @@ export const linksData = [
 export const socialLinksData = [
   {
     id: 1,
-    img: "/SocialImg/telegram-icon-2048x1725-i4kw83ca.png",
-    link: "",
+    img: "/SocialImg/github.png",
+    link: "https://github.com/ArtinAsadzade",
   },
-  {
-    id: 2,
-    img: "/SocialImg/whatsapp_logo_icon_144742.png",
-    link: "",
-  },
-  { id: 3, img: "/SocialImg/87390.png", link: "" },
 ];
 export const namadData = [
   { id: 1, img: "/Namad/symbol-02.png", link: "" },
@@ -267,5 +261,15 @@ export const UsersData = [
     email: "TestUser@gmail.com",
     profile: "",
     perm: 1,
+  },
+  {
+    id: 3,
+    userName: "mamad",
+    firstName: "ممد",
+    lastName: "اکبری",
+    password: "123",
+    email: "mmd@gmail.com",
+    profile: "",
+    perm: 0,
   },
 ];

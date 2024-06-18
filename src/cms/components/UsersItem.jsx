@@ -1,11 +1,9 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { useContext, useState } from "react";
-import { UserAccContext } from "./../../context/UserAccContext";
+import { useState } from "react";
 import YesOrNo from "../../components/YesOrNo";
 
 export default function UsersItem(props) {
   const [show, setShow] = useState(false);
-  const { userAcc } = useContext(UserAccContext);
 
   const deleteUserHandler = () => {};
 
@@ -59,7 +57,10 @@ export default function UsersItem(props) {
           <button
             href="#"
             className="font-medium text-gray-500 mx-2 hover:underline"
-            onClick={userAcc?.id !== props?.id && openYesOrNoModal}
+            onClick={
+              JSON.parse(localStorage.getItem("user"))?.id !== props?.id &&
+              openYesOrNoModal
+            }
           >
             <TrashIcon className="w-5" />
           </button>

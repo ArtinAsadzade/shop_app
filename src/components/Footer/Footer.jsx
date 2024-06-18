@@ -72,7 +72,7 @@ export default function Footer() {
               <p className="opacity-60 transition m-2">
                 آدرس: تهران،خیابان دماوند
               </p>
-              <p className="opacity-60 transition m-2">تلفن:09111111111</p>
+              <p className="opacity-60 transition m-2">تلفن:09102206571</p>
               <p className="opacity-60 transition m-2">
                 ساعت پاسخگویی:9 الی 18
               </p>

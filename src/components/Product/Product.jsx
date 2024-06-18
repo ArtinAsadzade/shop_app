@@ -10,13 +10,21 @@ export default function Product(props) {
       </div>
       <div className="flex flex-col w-full">
         <p className="text-xs sm:text-sm opacity-90 mb-5">{props.name}</p>
-        <div className="flex justify-end mb-2 text-sm opacity-80 pl-3 md:pl-0">
-          <p>{props.offerPrice}</p>
+        {props.offerPrice ? (
+          <div className="flex justify-end mb-2 text-sm opacity-80 pl-3 md:pl-0">
+            <p>{props.offerPrice}</p>
+            <p>تومان</p>
+          </div>
+        ) : (
+          <></>
+        )}
+        <div
+          className={`flex justify-end text-xs opacity-75 pl-3 md:pl-0 ${
+            props.offerPrice ? "line-through" : ""
+          }`}
+        >
+          <p>{props.price}</p>
           <p>تومان</p>
-        </div>
-        <div className="flex justify-end text-xs opacity-75 pl-3 md:pl-0">
-          <p className="line-through">{props.price}</p>
-          <p className="line-through">تومان</p>
         </div>
       </div>
     </div>

@@ -1,16 +1,14 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useContext, useState } from "react";
 import { UsersDataContext } from "./../../context/ProductDataContext";
-import { UserAccContext } from "./../../context/UserAccContext";
 import YesOrNo from "./YesOrNo";
 
 export default function AdminItems(props) {
   const [show, setShow] = useState(false);
-  const { userAcc } = useContext(UserAccContext);
   const { Users, setUsers } = useContext(UsersDataContext);
 
   const deleteUserHandler = () => {
-    if (userAcc.id === props.id) {
+    if (JSON.parse(localStorage.getItem("user"))?.id === props.id) {
       setShow((prevState) => (prevState = !prevState));
     } else {
       setUsers(Users.filter((item) => item.id !== props.id));
@@ -50,7 +48,10 @@ export default function AdminItems(props) {
           <button
             href="#"
             className="font-medium text-gray-500 mx-2 hover:underline"
-            onClick={userAcc?.id !== props?.id && openYesOrNoModal}
+            onClick={
+              JSON.parse(localStorage.getItem("user"))?.id !== props?.id &&
+              openYesOrNoModal
+            }
           >
             <TrashIcon className="w-5" />
           </button>

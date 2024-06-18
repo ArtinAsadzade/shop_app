@@ -4,16 +4,14 @@ import {
   ShoppingCartIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserAccContext } from "../../context/UserAccContext";
 import YesOrNo from "../YesOrNo";
 
 export default function BasketLoginNav() {
   const navigate = useNavigate();
   const [subMenu, setSubMenu] = useState(false);
   const [openYseOrNO, setOpenYseOrNO] = useState(false);
-  const { userAcc } = useContext(UserAccContext);
 
   const loginPageHandler = useCallback(() => {
     if (!localStorage.getItem("user")) {
@@ -55,7 +53,8 @@ export default function BasketLoginNav() {
           ) : (
             <>
               <p className="text-sm opacity-95">
-                {userAcc.firstName} {userAcc.lastName}
+                {JSON.parse(localStorage.getItem("user"))?.firstName}{" "}
+                {JSON.parse(localStorage.getItem("user"))?.lastName}
               </p>
               {subMenu ? (
                 <ChevronUpIcon className="w-4 text-red-600 mx-1" />
@@ -73,7 +72,7 @@ export default function BasketLoginNav() {
                 <div className="cursor-pointer justify-center relative lg:justify-center flex items-center text-center h-10 leading-10 mx-1 w-full my-2 transition rounded-xl hover:bg-red-50">
                   پنل کاربری
                 </div>
-                {userAcc.perm ? (
+                {JSON.parse(localStorage.getItem("user"))?.perm ? (
                   <div className="cursor-pointer justify-center relative lg:justify-center flex items-center text-center h-10 leading-10 mx-1 w-full my-2 transition rounded-xl hover:bg-red-50">
                     پنل ادمین{" "}
                   </div>

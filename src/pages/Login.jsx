@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "./../context/UserContext";
 import YesOrNo from "./../components/YesOrNo";
 import { UserAccContext } from "./../context/UserAccContext";
 import { useEffect } from "react";
@@ -12,10 +11,8 @@ import { userLogin } from "../Utils";
 export default function Login() {
   const [show, setShow] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
-  const { userName, setUserName, userPassword, setUserPassword } =
-    useContext(UserContext);
-
-  const { userAcc } = useContext(UserAccContext);
+  const [userName, setUserName] = useState("" || "Test User");
+  const [userPassword, setUserPassword] = useState("" || "123");
 
   const isLogin = userLogin(userName, userPassword);
 
@@ -31,6 +28,12 @@ export default function Login() {
   const setPasswordHandler = (e) => {
     setUserPassword(e.target.value);
   };
+
+  let userAcc = JSON.parse(localStorage.getItem("usersData"))?.find(
+    (user) =>
+      userPassword === user.password &&
+      (user.gmail === userName || user.userName === userName)
+  );
 
   const submitHandler = () => {
     if (isLogin) {

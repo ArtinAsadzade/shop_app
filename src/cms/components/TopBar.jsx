@@ -4,14 +4,12 @@ import {
   Bars3Icon,
 } from "@heroicons/react/24/outline";
 import { ShowSideBarContext } from "./../../context/ShowSideBarContext";
-import { UserAccContext } from "./../../context/UserAccContext";
 import YesOrNo from "../../components/YesOrNo";
 import { useNavigate } from "react-router-dom";
 
 export default function TopBar() {
   const [show, setShow] = useState(false);
   const { setShowSideBar } = useContext(ShowSideBarContext);
-  const { userAcc } = useContext(UserAccContext);
   const navigate = useNavigate();
 
   const showHamburgerHandler = () => {
@@ -54,7 +52,10 @@ export default function TopBar() {
             className="w-5 md:w-8 text-black cursor-pointer mx-2"
           />
           <img
-            src={userAcc.profile || "/Profile/Default.jpg"}
+            src={
+              JSON.parse(localStorage.getItem("user"))?.profile ||
+              "/Profile/Default.jpg"
+            }
             alt="Profile Pic"
             className="bg-black rounded-full w-8 md:w-10 mx-2 cursor-pointer"
           />
