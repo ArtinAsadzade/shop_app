@@ -5,7 +5,7 @@ import YesOrNo from "../../components/YesOrNo";
 
 export default function UsersItem(props) {
   const [show, setShow] = useState(false);
-  const { userFind } = useContext(UserAccContext);
+  const { userAcc } = useContext(UserAccContext);
 
   const deleteUserHandler = () => {};
 
@@ -59,7 +59,7 @@ export default function UsersItem(props) {
           <button
             href="#"
             className="font-medium text-gray-500 mx-2 hover:underline"
-            onClick={userFind?.id !== props?.id && openYesOrNoModal}
+            onClick={userAcc?.id !== props?.id && openYesOrNoModal}
           >
             <TrashIcon className="w-5" />
           </button>
