@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import YesOrNo from "./../components/YesOrNo";
-import { UserAccContext } from "./../context/UserAccContext";
 import { useEffect } from "react";
-import { EyeIcon, EyeSlashIcon, HeartIcon } from "@heroicons/react/24/outline";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { userLogin } from "../Utils";
 
 // JSON.parse(localStorage.getItem("user"))
@@ -67,7 +66,6 @@ export default function Login() {
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <h2 className="text-center my-10 text-2xl font-bold tracking-tight text-gray-900 p-1">
                 به حساب کاربری خود وارد شوید{" "}
-                <HeartIcon className="w-6 inline-block text-red-500" />
               </h2>
               <form className="space-y-6" onSubmit={formSubmitHandler}>
                 <div>
@@ -140,7 +138,18 @@ export default function Login() {
             </div>
           </div>
         </div>
-        <div className="w-1/2 hidden sm:block bg-red-500 rounded-md mx-2"></div>
+        <div className="w-1/2 relative h-full hidden sm:flex rounded-md mx-2">
+          <img
+            src="/Vectors/LoginGif.gif"
+            alt=""
+            className="rounded-md flex-1"
+          />
+          <div className="w-full absolute right-0">
+            <h2 className=" text-center my-10 text-2xl font-bold tracking-tight text-red-500 p-1">
+              به آرتی کام خوش آمدید
+            </h2>
+          </div>
+        </div>
       </div>
     </>
   );
