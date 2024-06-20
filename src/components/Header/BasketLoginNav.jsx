@@ -5,7 +5,7 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import YesOrNo from "../YesOrNo";
 
 export default function BasketLoginNav() {
@@ -73,9 +73,12 @@ export default function BasketLoginNav() {
                   پنل کاربری
                 </div>
                 {JSON.parse(localStorage.getItem("user"))?.perm ? (
-                  <div className="cursor-pointer justify-center relative lg:justify-center flex items-center text-center h-10 leading-10 mx-1 w-full my-2 transition rounded-xl hover:bg-red-50">
+                  <NavLink
+                    to={"/admin"}
+                    className="cursor-pointer justify-center relative lg:justify-center flex items-center text-center h-10 leading-10 mx-1 w-full my-2 transition rounded-xl hover:bg-red-50"
+                  >
                     پنل ادمین{" "}
-                  </div>
+                  </NavLink>
                 ) : (
                   <></>
                 )}
