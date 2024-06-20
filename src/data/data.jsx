@@ -154,11 +154,11 @@ export const showNavBarData = false;
 export const adminPageLinksData = [
   {
     id: 1,
-    title: "Dashboard",
+    title: "داشبورد",
     infos: [
       {
         id: 1,
-        name: "Home",
+        name: "خانه",
         link: "home",
         icon: <HomeIcon />,
         category: "dashboard",
@@ -167,25 +167,18 @@ export const adminPageLinksData = [
   },
   {
     id: 2,
-    title: "Quick Menu",
+    title: "دسترسی سریع",
     infos: [
       {
         id: 1,
-        name: "Users",
+        name: "کاربر ها",
         link: "users",
         icon: <UserIcon />,
         category: "quickmenu",
       },
       {
         id: 2,
-        name: "Admins",
-        link: "admins",
-        icon: <UserIcon />,
-        category: "quickmenu",
-      },
-      {
-        id: 3,
-        name: "Products",
+        name: "محصولات",
         link: "products",
         icon: <BuildingStorefrontIcon />,
         category: "quickmenu",
@@ -194,25 +187,25 @@ export const adminPageLinksData = [
   },
   {
     id: 3,
-    title: "Notification",
+    title: "پبام ها",
     infos: [
       {
         id: 1,
-        name: "Mail",
+        name: "ایمیل",
         link: "mail",
         icon: <EnvelopeIcon />,
         category: "notification",
       },
       {
         id: 2,
-        name: "Feedback",
+        name: "نظرات",
         link: "feedback",
         icon: <InboxArrowDownIcon />,
         category: "notification",
       },
       {
         id: 3,
-        name: "Message",
+        name: "پیام ها",
         link: "message",
         icon: <ChatBubbleOvalLeftEllipsisIcon />,
         category: "notification",
@@ -221,18 +214,18 @@ export const adminPageLinksData = [
   },
   {
     id: 4,
-    title: "Staff",
+    title: "ادمین",
     infos: [
       {
         id: 1,
-        name: "Manage",
+        name: "مدیریت",
         link: "manage",
         icon: <HomeIcon />,
         category: "staff",
       },
       {
         id: 2,
-        name: "Reports",
+        name: "گزارش ها",
         link: "reports",
         icon: <ExclamationCircleIcon />,
         category: "staff",
