@@ -16,10 +16,10 @@ export default function SideBar() {
       <div
         className={`${
           showSideBar ? "block" : ""
-        }hidden fixed top-0 sm:sticky bg-white h-screen sm:flex flex-col w-1/3 md:w-1/6 overflow-y-auto`}
+        }hidden fixed right-0 top-0 sm:sticky bg-white h-screen sm:flex px-2 flex-col w-1/3 md:w-1/6 shadow-lg`}
       >
         <XMarkIcon
-          className="block sm:hidden w-6 my-3 mx-2 cursor-pointer"
+          className="block sm:hidden w-6 my-3 mx-2 mr-auto cursor-pointer text-gray-950"
           onClick={showHamburgerHandler}
         />
         <div className="sticky top-0 h-svh">
