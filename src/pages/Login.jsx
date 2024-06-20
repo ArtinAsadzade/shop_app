@@ -61,7 +61,7 @@ export default function Login() {
         setShow={setShow}
       />
       <div className="w-full h-svh flex bg-gray-200 min-h-full px-6 py-12 lg:px-8">
-        <div className="w-full h-full flex flex-col p-8 backdrop-brightness-150 sm:w-1/2 rounded-md mx-2">
+        <div className="w-full h-full flex flex-col p-8 backdrop-brightness-150 lg:w-1/2 rounded-md mx-2">
           <div className="w-full h-full flex items-center">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
               <h2 className="text-center my-10 text-2xl font-bold tracking-tight text-gray-900 p-1">
@@ -98,7 +98,7 @@ export default function Login() {
                     </label>
                   </div>
                   <div className="mt-3 relative">
-                    {!showPassword ? (
+                    {showPassword ? (
                       <EyeSlashIcon
                         className="w-4 absolute left-2 top-2.5 cursor-pointer"
                         onClick={showAndHidePasswordHandler}
@@ -138,17 +138,12 @@ export default function Login() {
             </div>
           </div>
         </div>
-        <div className="w-1/2 relative h-full hidden sm:flex rounded-md mx-2">
+        <div className="w-1/2 h-full hidden lg:flex rounded-md mx-2">
           <img
             src="/Vectors/LoginGif.gif"
             alt=""
             className="rounded-md flex-1"
           />
-          <div className="w-full absolute right-0">
-            <h2 className=" text-center my-10 text-2xl font-bold tracking-tight text-red-500 p-1">
-              به آرتی کام خوش آمدید
-            </h2>
-          </div>
         </div>
       </div>
     </>
