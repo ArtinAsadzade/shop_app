@@ -9,7 +9,6 @@ export default function Offers() {
   const { products } = useContext(ProductDataContext);
   const draggScroll = useRef();
   const { events } = useDraggable(draggScroll);
-  console.log(products);
 
   return (
     <div className="container px-5 py-5 rounded-xl md:px-10 mt-10 mb-5 bg-white shadow-lg ">
