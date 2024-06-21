@@ -241,7 +241,7 @@ export const UsersData = [
     firstName: "آرتین",
     lastName: "اسدزاده",
     password: "12345",
-    email: "artin@gmail.com",
+    email: "artinasadzade7@gmail.com",
     profile: "/Profile/artin.jpg",
     perm: 2,
   },
