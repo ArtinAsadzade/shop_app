@@ -39,7 +39,7 @@ export default function TopBar() {
         <div className="flex justify-evenly items-center">
           <ArrowRightStartOnRectangleIcon
             onClick={openModalHandler}
-            className="w-8 md:w-10 text-black cursor-pointer mx-2"
+            className="w-7 md:w-9 text-black cursor-pointer mx-2"
           />
           <div className="flex justify-center px-2 border-r-[1px] items-start flex-col">
             <img
@@ -57,11 +57,11 @@ export default function TopBar() {
           </div>
         </div>
         <div>
-          <h1 className="hidden sm:block font-extrabold text-xl md:text-2xl text-gray-600">
-            articom | Admin Panel
+          <h1 className="hidden md:block font-extrabold text-xl md:text-2xl text-gray-600">
+            Admin Panel
           </h1>
           <Bars3Icon
-            className="block sm:hidden w-8 cursor-pointer"
+            className="block md:hidden w-8 cursor-pointer"
             onClick={showHamburgerHandler}
           />
         </div>
