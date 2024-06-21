@@ -74,7 +74,7 @@ export default function BasketLoginNav() {
                 </div>
                 {JSON.parse(localStorage.getItem("user"))?.perm ? (
                   <NavLink
-                    to={"/admin"}
+                    to={"/admin/home"}
                     className="cursor-pointer justify-center relative lg:justify-center flex items-center text-center h-10 leading-10 mx-1 w-full my-2 transition rounded-xl hover:bg-red-50"
                   >
                     پنل ادمین{" "}
