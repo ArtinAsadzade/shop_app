@@ -25,14 +25,14 @@ export const routers = [
     children: [
       { path: "home", element: <Home /> },
       {
-        path: "ManageUsers",
+        path: "users",
         children: [
           { path: "", element: <Users /> },
           { path: "addNewUser", element: <NewUser /> },
         ],
       },
       {
-        path: "ManageProducts",
+        path: "products",
         children: [
           { path: "", element: <Products /> },
           { path: "addNewProduct", element: <NewProduct /> },
