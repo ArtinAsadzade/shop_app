@@ -8,7 +8,6 @@ export default function YesOrNo({ title, desc, func, button, show, setShow }) {
   const hideQuest = () => {
     setShow((prevState) => (prevState = !prevState));
   };
-  console.log(show);
   useEffect(() => {
     if (show) {
       document.body.style.overflowY = "hidden";
