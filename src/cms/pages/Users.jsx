@@ -26,14 +26,17 @@ export default function Users() {
               <table className="w-full text-sm text-gray-500">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                   <tr>
-                    <th scope="col" className="px-6 py-3 text-left">
-                      UserName / Email
+                    <th scope="col" className="px-6 py-3 text-right">
+                      نام کاربری / ایمیل
                     </th>
                     <th scope="col" className="px-6 py-3 text-center">
-                      Role
+                      نام و نام خانوادگی
                     </th>
-                    <th scope="col" className="px-6 py-3 text-right">
-                      Action
+                    <th scope="col" className="px-6 py-3 text-center">
+                      نقش
+                    </th>
+                    <th scope="col" className="px-6 py-3 text-left">
+                      عمل
                     </th>
                   </tr>
                 </thead>
