@@ -14,11 +14,14 @@ function App() {
 
   useEffect(() => {
     if (
-      !localStorage.getItem("usersData") &&
+      !localStorage.getItem("usersData") ||
       !localStorage.getItem("productsData")
     ) {
-      localStorage.setItem("usersData", JSON.stringify(UsersData));
-      localStorage.setItem("productsData", JSON.stringify(productsData));
+      if (!localStorage.getItem("usersData")) {
+        localStorage.setItem("usersData", JSON.stringify(UsersData));
+      } else if (!localStorage.getItem("productsData")) {
+        localStorage.setItem("productsData", JSON.stringify(productsData));
+      }
     }
   }, []);
 
