@@ -15,7 +15,7 @@ export const productsData = [
     price: 3500000,
     offerPrice: 3200000,
     count: 2,
-    img: "/images/airpod.jpg",
+    img: "/images/airpod.webp",
   },
   {
     id: 1,
@@ -23,7 +23,7 @@ export const productsData = [
     price: 2000000,
     offerPrice: 1800000,
     count: 9,
-    img: "/images/Phone.jpg",
+    img: "/images/Phone.webp",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ export const productsData = [
     price: 45000000,
     offerPrice: 43300000,
     count: 11,
-    img: "/images/tv.jpg",
+    img: "/images/tv.webp",
   },
   {
     id: 5,
@@ -47,14 +47,14 @@ export const productsData = [
     price: 1200000,
     offerPrice: 1150000,
     count: 30,
-    img: "/images/rish.jpg",
+    img: "/images/rish.webp",
   },
   {
     id: 6,
     name: "کاپشن",
     price: 150000,
     count: 1,
-    img: "/images/kap.jpg",
+    img: "/images/kap.webp",
   },
   {
     id: 7,
@@ -62,7 +62,7 @@ export const productsData = [
     price: 500000,
     offerPrice: 450000,
     count: 20,
-    img: "/images/Watch.jpg",
+    img: "/images/Watch.webp",
   },
 ];
 
@@ -112,13 +112,13 @@ export const linksData = [
 export const socialLinksData = [
   {
     id: 1,
-    img: "/SocialImg/github.png",
+    img: "/SocialImg/github.webp",
     link: "https://github.com/ArtinAsadzade",
   },
 ];
 export const namadData = [
-  { id: 1, img: "/Namad/symbol-02.png", link: "" },
-  { id: 2, img: "/Namad/zarinPal.png", link: "" },
+  { id: 1, img: "/Namad/symbol-02.webp", link: "" },
+  { id: 2, img: "/Namad/zarinPal.webp", link: "" },
 ];
 
 export const categorysData = [
@@ -242,7 +242,7 @@ export const UsersData = [
     lastName: "اسدزاده",
     password: "12345",
     email: "artinasadzade7@gmail.com",
-    profile: "/Profile/artin.jpg",
+    profile: "/Profile/artin.webp",
     perm: 2,
   },
   {
