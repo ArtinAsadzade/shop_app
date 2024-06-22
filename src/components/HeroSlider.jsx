@@ -10,8 +10,8 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 export default function Slider() {
   const [sliderImages] = useState([
     { id: 1, src: "/Slider/slide1.gif" },
-    { id: 2, src: "/Slider/1.jpg" },
-    { id: 3, src: "/Slider/4.jpg" },
+    { id: 2, src: "/Slider/1.webp" },
+    { id: 3, src: "/Slider/4.webp" },
   ]);
 
   return (
@@ -32,7 +32,12 @@ export default function Slider() {
       >
         {sliderImages.map((item) => (
           <SwiperSlide key={item.id}>
-            <img className="rounded-md h-full md:rounded-3xl md:px-2 object-cover" key={item.id} src={item.src} alt="banner" />
+            <img
+              className="rounded-md h-full md:rounded-3xl md:px-2 object-cover"
+              key={item.id}
+              src={item.src}
+              alt="banner"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
