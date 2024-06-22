@@ -29,7 +29,7 @@ export default function Users() {
                     <th scope="col" className="px-6 py-3 text-right">
                       نام کاربری / ایمیل
                     </th>
-                    <th scope="col" className="px-6 py-3 text-center">
+                    <th scope="col" className="px-6 py-3 text-right">
                       نام و نام خانوادگی
                     </th>
                     <th scope="col" className="px-6 py-3 text-center">
