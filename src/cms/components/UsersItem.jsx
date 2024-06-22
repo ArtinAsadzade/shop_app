@@ -55,7 +55,7 @@ export default function UsersItem(props) {
           </p>
         </td>
         <td className="px-6 py-4 text-black font-bold text-center">
-          <button className=" uppercase bg-blue-500 px-3 py-2 rounded-lg cursor-default">
+          <button className=" uppercase bg-blue-500 text-white px-3 py-2 rounded-lg cursor-default">
             {props?.perm === 0
               ? "کاربر"
               : props?.perm === 1
