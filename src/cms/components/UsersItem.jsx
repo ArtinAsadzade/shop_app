@@ -40,7 +40,7 @@ export default function UsersItem(props) {
           className="px-6 py-4 font-bold text-black flex text-right"
         >
           <img
-            src={props.profile || "/Profile/Default.jpg"}
+            src={props.profile || "/Profile/Default.webp"}
             alt=""
             className="w-10 bg-black rounded-full mr-5"
           />
@@ -65,7 +65,7 @@ export default function UsersItem(props) {
               : "منیجر"}
           </button>
         </td>
-        <td className="py-4">
+        <td className="py-4 text-left">
           <button
             href="#"
             className="font-medium text-gray-500 mx-2 hover:underline"
