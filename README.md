@@ -20,7 +20,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 ### Installation
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-username/shop_app.git
+    git clone https://github.com/ArtinAsadzade/shop_app.git
     cd shop_app
     ```
 
@@ -37,8 +37,6 @@ Follow these instructions to get a copy of the project up and running on your lo
     # or
     yarn dev
     ```
-
-4. **Open your browser** and navigate to `http://localhost:3000` to see the application in action.
 
 ## Project Structure
 - **src/**: Contains the main source code for the application.
@@ -67,7 +65,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework.
 
 ## Author
-- **Artin Asadzadeh**
+- **Artin Asadzade**
 
 ## Contributing
 Contributions are welcome! Please fork the repository and use a feature branch. Pull requests are warmly welcome.
