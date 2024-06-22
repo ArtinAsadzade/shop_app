@@ -41,23 +41,23 @@ export default function TopBar() {
             onClick={openModalHandler}
             className="w-7 md:w-9 text-black cursor-pointer mx-2"
           />
-          <div className="flex justify-center px-2 border-r-[1px] items-start flex-col">
+          <div className="flex justify-center px-2 border-r-[1px] items-center">
             <img
               src={
                 JSON.parse(localStorage.getItem("user"))?.profile ||
-                "/Profile/Default.jpg"
+                "/Profile/Default.webp"
               }
               alt="Profile Pic"
               className="bg-black rounded-full w-8 md:w-10 cursor-pointer border-[1px]"
             />
-            <p className="text-md opacity-95">
+            <p className="text-lg opacity-95 mx-3">
               {JSON.parse(localStorage.getItem("user"))?.firstName}{" "}
               {JSON.parse(localStorage.getItem("user"))?.lastName}
             </p>
           </div>
         </div>
         <div>
-          <h1 className="hidden md:block font-extrabold text-xl md:text-2xl text-gray-600">
+          <h1 className="hidden md:block font-extrabold text-lg md:text-xl text-gray-600">
             Admin Panel
           </h1>
           <Bars3Icon
