@@ -1,16 +1,19 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { useContext, useState } from "react";
-import { ProductDataContext } from "./../../context/ProductDataContext";
+import { useContext, useEffect, useState } from "react";
 import YesOrNo from "../../components/YesOrNo";
+import { ProductDataContext } from "../../context/ProductDataContext";
 
-export default function ProductsItem(props) {
+export default function ProductItems(props) {
   const [show, setShow] = useState(false);
   const { products, setProducts } = useContext(ProductDataContext);
 
-  const deleteProductHandler = () => {
-    setProducts(products.filter((item) => item.id !== props.id));
-    setShow((prevState) => (prevState = !prevState));
+  const deleteUserHandler = () => {
+    setProducts(products.filter((product) => product.id !== props.id));
   };
+
+  useEffect(() => {
+    localStorage.setItem("productsData", JSON.stringify(products));
+  }, [products]);
 
   const openYesOrNoModal = () => {
     setShow((prevState) => (prevState = !prevState));
@@ -19,37 +22,53 @@ export default function ProductsItem(props) {
   return (
     <>
       <YesOrNo
-        title={`You Want Delete *${props.name}*?`}
-        desc={`Are you sure about deleting the desired product?`}
+        title={`شما می خواهید محصول  *${props?.name}* را حذف کنید؟`}
+        desc={`آیا از حذف محصول مورد نظر مطمئن هستید؟`}
         button={true}
-        func={deleteProductHandler}
+        func={deleteUserHandler}
         show={show}
         setShow={setShow}
       />
-      <div className="w-full grid grid-cols-12 border-b-2 bg-white px-8 py-2 my-2 rounded-md">
-        <img
-          src={props.img}
-          alt=""
-          className="w-1/7 h-20 text-left col-span-3 object-cover"
-        />
-        <div className="m-auto col-span-3 text-center w-full">
-          <p className="font-bold">{props.name}</p>
-        </div>
-        <div className="w-1/4 m-auto px-2 py-1 rounded-lg col-span-3">
-          <p className="font-bold text-black">{props.price}</p>
-          {!!props.offerPrice && (
-            <p className="text-gray-400">{props.offerPrice}</p>
-          )}
-        </div>
-        <div className="text-black flex col-span-3 w-full justify-end">
-          <button className="mx-2 my-2 rounded-sm text-lg text-gray-500 flex items-center p-[2px] justify-center font-bold">
+      <tr className="odd:bg-gray-200 bg-gray-50 even:bg-gray-100 border-b">
+        <td
+          scope="row"
+          className="px-6 py-4 font-bold text-black flex text-right"
+        >
+          <img
+            src={props.img || "/Profile/Default.webp"}
+            alt=""
+            className="w-16 mr-5"
+          />
+        </td>
+        <td className="px-6 py-4 text-black font-bold text-right">
+          <p className="">{props?.name}</p>
+        </td>
+        <td className="px-6 py-4 text-black font-bold text-center">
+          <div className="flex flex-col mx-4">
+            <p className="">{props?.price}</p>
+            {props?.offerPrice ? (
+              <p className="text-gray-400">{props?.offerPrice}</p>
+            ) : (
+              <></>
+            )}
+          </div>
+        </td>
+        <td className="py-4 text-left">
+          <button
+            href="#"
+            className="font-medium text-gray-500 mx-2 hover:underline"
+          >
             <PencilSquareIcon className="w-5" />
           </button>
-          <button className="mx-2 my-2 rounded-sm text-lg text-gray-500 flex items-center p-[2px] justify-center font-bold">
-            <TrashIcon className="w-5" onClick={openYesOrNoModal} />
+          <button
+            href="#"
+            className={`font-medium text-gray-500 mx-2 hover:underline`}
+            onClick={openYesOrNoModal}
+          >
+            <TrashIcon className="w-5" />
           </button>
-        </div>
-      </div>
+        </td>
+      </tr>
     </>
   );
 }
