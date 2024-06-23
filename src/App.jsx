@@ -8,10 +8,12 @@ import ProductDataProvider from "./context/ProductDataContext";
 import { UsersData, productsData } from "./data/data";
 import { useEffect } from "react";
 import useEncrypted from "./hooks/useEncrypted";
+import useDecrypted from "./hooks/useDecrypted";
+import UserAccProvider from "./context/UserAccContex";
 
 function App() {
   const router = useRoutes(routers);
-
+  console.log(useDecrypted("user"));
   useEffect(() => {
     if (
       !localStorage.getItem("usersData") ||
@@ -27,13 +29,15 @@ function App() {
 
   return (
     <UserProvider>
-      <ShowYesOrNoProvider>
-        <UsersDataProvider>
-          <ProductDataProvider>
-            <ShowSideBarProvider>{router}</ShowSideBarProvider>
-          </ProductDataProvider>
-        </UsersDataProvider>
-      </ShowYesOrNoProvider>
+      <UserAccProvider>
+        <ShowYesOrNoProvider>
+          <UsersDataProvider>
+            <ProductDataProvider>
+              <ShowSideBarProvider>{router}</ShowSideBarProvider>
+            </ProductDataProvider>
+          </UsersDataProvider>
+        </ShowYesOrNoProvider>
+      </UserAccProvider>
     </UserProvider>
   );
 }
