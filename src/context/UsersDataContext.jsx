@@ -6,12 +6,11 @@ export const UsersDataContext = createContext();
 export default function UsersDataProvider({ children }) {
   const [users, setUsers] = useState(null);
 
-  const [decryptedUsers] = useDecrypted("usersData");
+  const decryptedData = useDecrypted("usersData");
 
   useEffect(() => {
-    setUsers(decryptedUsers);
-    console.log(users);
-  }, [decryptedUsers]);
+    setUsers(decryptedData);
+  }, [decryptedData, users]);
 
   return (
     <UsersDataContext.Provider value={{ users, setUsers }}>
