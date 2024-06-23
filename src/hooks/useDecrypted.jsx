@@ -2,7 +2,7 @@ import CryptoJS from "crypto-js";
 import { useState, useEffect } from "react";
 
 const useDecrypted = (key) => {
-  const [decryptedData, setDecryptedData] = useState(null);
+  const [decryptedData, setDecryptedData] = useState([]);
 
   useEffect(() => {
     const encryptedData = localStorage.getItem(key);
@@ -16,7 +16,7 @@ const useDecrypted = (key) => {
         setDecryptedData(data);
       } catch (error) {
         console.error(`Error decrypting data: ${error.message}`);
-        setDecryptedData(null); // Handle error by setting decryptedData to null
+        setDecryptedData([]);
       }
     }
   }, [key]);
