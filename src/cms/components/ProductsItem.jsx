@@ -12,7 +12,7 @@ export default function ProductItems(props) {
   };
 
   useEffect(() => {
-    localStorage.setItem("productsData", JSON.stringify(products));
+    // localStorage.setItem("productsData", JSON.stringify(products));
   }, [products]);
 
   const openYesOrNoModal = () => {
