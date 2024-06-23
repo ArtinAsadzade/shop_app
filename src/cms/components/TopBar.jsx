@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import {
   ArrowRightStartOnRectangleIcon,
   Bars3Icon,
@@ -6,11 +6,14 @@ import {
 import { ShowSideBarContext } from "./../../context/ShowSideBarContext";
 import YesOrNo from "../../components/YesOrNo";
 import { useNavigate } from "react-router-dom";
+import useDecrypted from "../../hooks/useDecrypted";
 
 export default function TopBar() {
   const [show, setShow] = useState(false);
   const { setShowSideBar } = useContext(ShowSideBarContext);
   const navigate = useNavigate();
+
+  const user = useMemo(() => useDecrypted("user") || {}, []);
 
   const showHamburgerHandler = () => {
     setShowSideBar((prevState) => (prevState = !prevState));
@@ -43,16 +46,12 @@ export default function TopBar() {
           />
           <div className="flex justify-center px-2 border-r-[1px] items-center">
             <img
-              src={
-                JSON.parse(localStorage.getItem("user"))?.profile ||
-                "/Profile/Default.webp"
-              }
+              src={user.profile || "/Profile/Default.webp"}
               alt="Profile Pic"
               className="bg-black rounded-full w-8 md:w-10 cursor-pointer border-[1px]"
             />
             <p className="text-lg opacity-95 mx-3">
-              {JSON.parse(localStorage.getItem("user"))?.firstName}{" "}
-              {JSON.parse(localStorage.getItem("user"))?.lastName}
+              {user.firstName} {user.lastName}
             </p>
           </div>
         </div>
