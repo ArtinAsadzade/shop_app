@@ -6,19 +6,18 @@ import ProductItems from "../components/ProductsItem";
 
 export default function Products() {
   const { products } = useContext(ProductDataContext);
-  console.log(products);
 
   return (
     <>
       {products && (
         <div className="w-full min-h-svh bg-slate-100 px-5 py-10 overflow-y-hidden">
           <div className="w-full flex justify-between items-center bg-white m-auto p-3 rounded-lg">
-            <h1 className="font-bold border-b-2">Manage Members</h1>
+            <h1 className="font-bold border-b-2">مدیریت محصول ها</h1>
             <Link
               to={"/users/addNewUser"}
               className="p-2 bg-blue-500 mx-3 rounded-lg flex text-white items-center justify-center"
             >
-              Add Product
+              اضافه کردن محصول
               <PlusIcon className="font-bold w-5 mx-1" />
             </Link>
           </div>
