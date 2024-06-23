@@ -1,7 +1,8 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import YesOrNo from "../../components/YesOrNo";
 import { UsersDataContext } from "../../context/UsersDataContext";
+import useDecrypted from "../../hooks/useDecrypted";
 
 export default function UsersItem(props) {
   const [show, setShow] = useState(false);
@@ -15,11 +16,10 @@ export default function UsersItem(props) {
     localStorage.setItem("usersData", JSON.stringify(users));
   }, [users]);
 
+  const user = useMemo(() => useDecrypted("user") || {}, []);
+
   const openYesOrNoModal = () => {
-    if (
-      JSON.parse(localStorage.getItem("user"))?.id !== props?.id &&
-      JSON.parse(localStorage.getItem("user"))?.perm > props?.perm
-    ) {
+    if (user.id !== props?.id && user.perm > props?.perm) {
       setShow((prevState) => (prevState = !prevState));
     }
   };
@@ -75,8 +75,7 @@ export default function UsersItem(props) {
           <button
             href="#"
             className={`font-medium text-gray-500 mx-2 hover:underline ${
-              JSON.parse(localStorage.getItem("user"))?.id === props?.id ||
-              JSON.parse(localStorage.getItem("user"))?.perm < props?.perm
+              user.id === props?.id || user.perm < props?.perm
                 ? "opacity-40 cursor-no-drop"
                 : ""
             }`}
