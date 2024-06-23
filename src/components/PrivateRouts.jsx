@@ -1,12 +1,12 @@
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import TopBar from "../cms/components/TopBar";
 import SideBar from "../cms/components/SideBar";
-import { useEffect, useMemo } from "react";
-import useDecrypted from "../hooks/useDecrypted";
+import { useContext, useEffect } from "react";
+import { UserAccContex } from "../context/UserAccContex";
 
 export default function PrivateRouts() {
   const navigate = useNavigate();
-  const user = useMemo(() => useDecrypted("user"), []);
+  const { user } = useContext(UserAccContex);
 
   useEffect(() => {
     if (!user) navigate("/home");
