@@ -4,14 +4,18 @@ import {
   ShoppingCartIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import YesOrNo from "../YesOrNo";
+import useDecrypted from "../../hooks/useDecrypted";
 
 export default function BasketLoginNav() {
   const navigate = useNavigate();
   const [subMenu, setSubMenu] = useState(false);
   const [openYseOrNO, setOpenYseOrNO] = useState(false);
+
+  const user = useDecrypted("user");
+  console.log(useDecrypted("usersData"));
 
   const loginPageHandler = useCallback(() => {
     if (!localStorage.getItem("user")) {
@@ -48,13 +52,12 @@ export default function BasketLoginNav() {
           onClick={loginPageHandler}
         >
           <UserIcon className="w-5 ml-2 text-red-600" />
-          {!localStorage.getItem("user") ? (
+          {!user ? (
             <p className="text-sm opacity-95">ورود | ثبت نام</p>
           ) : (
             <>
               <p className="text-sm opacity-95">
-                {JSON.parse(localStorage.getItem("user"))?.firstName}{" "}
-                {JSON.parse(localStorage.getItem("user"))?.lastName}
+                {user.firstName} {user.lastName}
               </p>
               {subMenu ? (
                 <ChevronUpIcon className="w-4 text-red-600 mx-1" />
@@ -72,7 +75,7 @@ export default function BasketLoginNav() {
                 <div className="cursor-pointer justify-center relative lg:justify-center flex items-center text-center h-10 leading-10 mx-1 w-full my-2 transition rounded-xl hover:bg-red-50">
                   پنل کاربری
                 </div>
-                {JSON.parse(localStorage.getItem("user"))?.perm ? (
+                {user.perm ? (
                   <NavLink
                     to={"/admin/home"}
                     className="cursor-pointer justify-center relative lg:justify-center flex items-center text-center h-10 leading-10 mx-1 w-full my-2 transition rounded-xl hover:bg-red-50"
