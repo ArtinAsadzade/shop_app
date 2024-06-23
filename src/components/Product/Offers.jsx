@@ -28,7 +28,7 @@ export default function Offers() {
       >
         <div className="w-full flex ">
           {products?.map((item) => (
-            <ProductOffer key={item.id} {...item} />
+            <ProductOffer key={item?.id} {...item} />
           ))}
         </div>
       </div>
