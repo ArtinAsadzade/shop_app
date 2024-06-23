@@ -1,10 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import useDecrypted from "../hooks/useDecrypted";
 
 export const ProductDataContext = createContext();
 
 export default function ProductDataProvider({ children }) {
-  const [products, setProducts] = useState(useDecrypted("productsData"));
+  const [products, setProducts] = useState(null);
+
+  const decryptedData = useDecrypted("productsData");
+
+  useEffect(() => {
+    setProducts(decryptedData);
+  }, [decryptedData, products]);
 
   return (
     <ProductDataContext.Provider value={{ products, setProducts }}>
