@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { userLogin } from "../Utils";
 import useEncrypted from "../hooks/useEncrypted";
-import useDecrypted from "../hooks/useDecrypted";
 import { UsersDataContext } from "../context/UsersDataContext";
 
 export default function Login() {
@@ -19,8 +18,7 @@ export default function Login() {
   const showAndHidePasswordHandler = () => {
     setShowPassword((prevState) => (prevState = !prevState));
   };
-  const { users, setUsers } = useContext(UsersDataContext);
-  console.log(users);
+  const { users } = useContext(UsersDataContext);
 
   const navigate = useNavigate();
 
@@ -32,7 +30,7 @@ export default function Login() {
   };
 
   const submitHandler = () => {
-    let userAcc = usersData.find(
+    let userAcc = users.find(
       (user) =>
         userPassword === user.password &&
         (user.gmail === userName || user.userName === userName)

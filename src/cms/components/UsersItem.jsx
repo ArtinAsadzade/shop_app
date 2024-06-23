@@ -1,12 +1,13 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
-import { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import YesOrNo from "../../components/YesOrNo";
 import { UsersDataContext } from "../../context/UsersDataContext";
-import useDecrypted from "../../hooks/useDecrypted";
+import { UserAccContex } from "../../context/UserAccContex";
 
 export default function UsersItem(props) {
   const [show, setShow] = useState(false);
   const { users, setUsers } = useContext(UsersDataContext);
+  const { user } = useContext(UserAccContex);
 
   const deleteUserHandler = () => {
     setUsers(users.filter((user) => user.id !== props.id));
@@ -15,8 +16,6 @@ export default function UsersItem(props) {
   useEffect(() => {
     localStorage.setItem("usersData", JSON.stringify(users));
   }, [users]);
-
-  const user = useMemo(() => useDecrypted("user") || {}, []);
 
   const openYesOrNoModal = () => {
     if (user.id !== props?.id && user.perm > props?.perm) {
