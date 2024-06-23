@@ -1,13 +1,27 @@
-import React, { useState } from "react";
+import CryptoJS from "crypto-js";
+import { useState, useEffect } from "react";
 
-export default function useDecrypted(data) {
-  const [data, setData] = useState(data);
+const useDecrypted = (key) => {
   const [decryptedData, setDecryptedData] = useState(null);
-  const encryptedData = localStorage.getItem("usersData");
-  const salt = import.meta.env.VITE_SECRET_KEY;
-  const bytes = CryptoJS.AES.decrypt(encryptedData, salt);
-  setDecryptedData(JSON.parse(bytes.toString(CryptoJS.enc.Utf8)));
-  console.log("Decrypted Data:", decryptedData);
 
-  return [decryptedData, setDecryptedData];
-}
+  useEffect(() => {
+    const encryptedData = localStorage.getItem(key);
+    if (encryptedData) {
+      try {
+        const bytes = CryptoJS.AES.decrypt(
+          encryptedData,
+          import.meta.env.VITE_SECRET_KEY
+        );
+        const data = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        setDecryptedData(data);
+      } catch (error) {
+        console.error(`Error decrypting data: ${error.message}`);
+        setDecryptedData(null); // Handle error by setting decryptedData to null
+      }
+    }
+  }, [key]);
+
+  return decryptedData;
+};
+
+export default useDecrypted;

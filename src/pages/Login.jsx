@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import YesOrNo from "./../components/YesOrNo";
 import { useEffect } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { userLogin } from "../Utils";
-
-// JSON.parse(localStorage.getItem("user"))
+import useEncrypted from "../hooks/useEncrypted";
+import useDecrypted from "../hooks/useDecrypted";
+import { UsersDataContext } from "../context/UsersDataContext";
 
 export default function Login() {
   const [show, setShow] = useState(true);
@@ -18,6 +19,8 @@ export default function Login() {
   const showAndHidePasswordHandler = () => {
     setShowPassword((prevState) => (prevState = !prevState));
   };
+  const { users, setUsers } = useContext(UsersDataContext);
+  console.log(users);
 
   const navigate = useNavigate();
 
@@ -28,15 +31,14 @@ export default function Login() {
     setUserPassword(e.target.value);
   };
 
-  let userAcc = JSON.parse(localStorage.getItem("usersData"))?.find(
-    (user) =>
-      userPassword === user.password &&
-      (user.gmail === userName || user.userName === userName)
-  );
-
   const submitHandler = () => {
+    let userAcc = usersData.find(
+      (user) =>
+        userPassword === user.password &&
+        (user.gmail === userName || user.userName === userName)
+    );
     if (isLogin) {
-      localStorage.setItem("user", JSON.stringify(userAcc));
+      useEncrypted(userAcc, "user");
       navigate("/home");
     }
   };
@@ -46,7 +48,7 @@ export default function Login() {
   };
 
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("user"))) {
+    if (localStorage.getItem("user")) {
       navigate("/home");
     }
   }, [navigate]);
