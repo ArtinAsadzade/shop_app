@@ -1,4 +1,4 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useState } from "react";
 import {
   ArrowRightStartOnRectangleIcon,
   Bars3Icon,
@@ -6,14 +6,13 @@ import {
 import { ShowSideBarContext } from "./../../context/ShowSideBarContext";
 import YesOrNo from "../../components/YesOrNo";
 import { useNavigate } from "react-router-dom";
-import useDecrypted from "../../hooks/useDecrypted";
+import { UserAccContex } from "../../context/UserAccContex";
 
 export default function TopBar() {
   const [show, setShow] = useState(false);
   const { setShowSideBar } = useContext(ShowSideBarContext);
   const navigate = useNavigate();
-
-  const user = useMemo(() => useDecrypted("user") || {}, []);
+  const { user } = useContext(UserAccContex);
 
   const showHamburgerHandler = () => {
     setShowSideBar((prevState) => (prevState = !prevState));
