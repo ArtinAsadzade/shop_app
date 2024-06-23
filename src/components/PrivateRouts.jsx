@@ -1,20 +1,20 @@
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import TopBar from "../cms/components/TopBar";
 import SideBar from "../cms/components/SideBar";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
+import useDecrypted from "../hooks/useDecrypted";
 
 export default function PrivateRouts() {
   const navigate = useNavigate();
+  const user = useMemo(() => useDecrypted("user"), []);
 
   useEffect(() => {
-    if (!localStorage.getItem("user")) {
-      navigate("/home");
-    }
-  }, [navigate]);
+    if (!user) navigate("/home");
+  }, [navigate, user]);
 
   return (
     <>
-      {JSON.parse(localStorage.getItem("user"))?.perm ? (
+      {user?.perm ? (
         <>
           <TopBar />{" "}
           <div className="flex mt-[2px]">
