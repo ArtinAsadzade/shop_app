@@ -4,16 +4,23 @@ import {
   ShoppingCartIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import YesOrNo from "../YesOrNo";
-import { UserAccContex } from "../../context/UserAccContex";
+import useDecrypted from "../../hooks/useDecrypted";
 
 export default function BasketLoginNav() {
   const navigate = useNavigate();
   const [subMenu, setSubMenu] = useState(false);
   const [openYseOrNO, setOpenYseOrNO] = useState(false);
-  const { user } = useContext(UserAccContex);
+  const [user, setUser] = useState();
+  const decryptedData = useDecrypted("user");
+
+  useEffect(() => {
+    if (decryptedData) {
+      setUser(decryptedData);
+    }
+  }, [decryptedData]);
 
   const loginPageHandler = useCallback(() => {
     if (!localStorage.getItem("user")) {
