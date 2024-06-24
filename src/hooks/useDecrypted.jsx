@@ -2,7 +2,7 @@ import CryptoJS from "crypto-js";
 import { useState, useEffect } from "react";
 
 const useDecrypted = (key) => {
-  const [decryptedData, setDecryptedData] = useState([]);
+  const [decryptedData, setDecryptedData] = useState();
 
   useEffect(() => {
     const encryptedData = localStorage.getItem(key);
