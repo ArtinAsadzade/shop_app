@@ -10,7 +10,7 @@ export default function UsersDataProvider({ children }) {
 
   useEffect(() => {
     setUsers(decryptedData);
-  }, [decryptedData, users]);
+  }, [decryptedData]);
 
   return (
     <UsersDataContext.Provider value={{ users, setUsers }}>
