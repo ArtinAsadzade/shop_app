@@ -30,6 +30,7 @@ export default function SignUpComponent({
               type="text"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 p-4 pl-7 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 outline-none focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+              placeholder="نام خود را وارد کنید"
             />
           </div>
         </div>
@@ -49,6 +50,7 @@ export default function SignUpComponent({
               type="text"
               required
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 p-4 pl-7 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 outline-none focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+              placeholder="نام خانوادگی خود را وارد کنید"
             />
           </div>
         </div>
@@ -69,6 +71,7 @@ export default function SignUpComponent({
             type="text"
             required
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 p-4 pl-7 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 outline-none focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+            placeholder="نام کاربری خود را وارد کنید"
           />
         </div>
       </div>
@@ -85,9 +88,10 @@ export default function SignUpComponent({
             onChange={handleValueChanges}
             id="email"
             name="email"
-            type="text"
+            type="email"
             required
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 p-4 pl-7 ring-inset ring-red-300 placeholder:text-red-400 focus:ring-2 outline-none focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+            placeholder="ایمیل خود را وارد کنید"
           />
         </div>
       </div>
@@ -120,7 +124,8 @@ export default function SignUpComponent({
             type={showPassword ? "text" : "password"}
             autoComplete="current-password"
             required
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 p-4 pl-10 placeholder:text-red-400 focus:ring-2 outline-none focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6 border-none"
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 p-4 pl-10 placeholder:text-red-400 focus:ring-2 outline-none focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+            placeholder="رمز عبور خود را وارد کنید"
           />
         </div>
       </div>
@@ -142,7 +147,8 @@ export default function SignUpComponent({
             type="password"
             autoComplete="current-password"
             required
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 p-4 pl-10 placeholder:text-red-400 focus:ring-2 outline-none focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6 border-none"
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-red-300 p-4 pl-10 placeholder:text-red-400 focus:ring-2 outline-none focus:ring-inset focus:ring-red-500 sm:text-sm sm:leading-6"
+            placeholder="تکرار رمز عبور خود را وارد کنید"
           />
         </div>
       </div>

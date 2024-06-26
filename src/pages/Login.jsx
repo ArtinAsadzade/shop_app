@@ -48,7 +48,7 @@ export default function Login() {
       } else {
         setShowToast(true);
         setToast({
-          msg: "نام کاربری یا رمز شما اشتباه است",
+          msg: "نام کاربری یا رمز عبور اشتباه است",
           icon: <XMarkIcon className="w-5 text-red-500" />,
         });
         setTimeout(() => {
@@ -57,9 +57,23 @@ export default function Login() {
       }
     } else {
       if (isEmailTaken) {
-        console.log(isEmailTaken);
+        setShowToast(true);
+        setToast({
+          msg: "ایمیل وارد شده قبلاً ثبت شده است",
+          icon: <XMarkIcon className="w-5 text-red-500" />,
+        });
+        setTimeout(() => {
+          setShowToast(false);
+        }, 5000);
       } else if (isUserNameTaken) {
-        console.log(isUserNameTaken);
+        setShowToast(true);
+        setToast({
+          msg: "نام کاربری وارد شده قبلاً ثبت شده است",
+          icon: <XMarkIcon className="w-5 text-red-500" />,
+        });
+        setTimeout(() => {
+          setShowToast(false);
+        }, 5000);
       }
     }
   }, [isEmailTaken, isLogin, isUserNameTaken, loginView, navigate]);
@@ -81,7 +95,7 @@ export default function Login() {
   return (
     <>
       <YesOrNo
-        title="میتونید با کاربر تست وارد بشید (ادمین)"
+        title="می‌توانید با کاربر تست وارد شوید (ادمین)"
         desc="نام کاربری: Test User || رمز عبور: 123"
         button={false}
         show={show}
