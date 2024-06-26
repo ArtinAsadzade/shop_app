@@ -9,8 +9,10 @@ export default function Toast({ icon, msg, show, setShow }) {
   return createPortal(
     <div
       id="toast-default"
-      className={`flex items-center justify-between w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg fixed top-5 right-5 shadow ${
-        show ? "opacity-100 visible" : "opacity-0 invisible"
+      className={`flex items-center justify-between w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg fixed top-2 right-2 shadow ${
+        show
+          ? "opacity-100 visible animate-slide-in-right"
+          : "opacity-0 invisible animate-slide-out-right"
       }`}
       role="alert"
     >
