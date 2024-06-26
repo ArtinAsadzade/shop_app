@@ -4,7 +4,7 @@ import {
   ShoppingCartIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import YesOrNo from "../YesOrNo";
 import useDecrypted from "../../hooks/useDecrypted";
