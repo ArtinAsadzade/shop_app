@@ -13,3 +13,15 @@ export const userLogin = (userName, userPassword) => {
     <></>
   );
 };
+
+export const checkUserNameExists = (userName) => {
+  const { users } = useContext(UsersDataContext);
+
+  return users ? users.some((user) => userName === user.userName) : <></>;
+};
+
+export const checkUserEmailExists = (email) => {
+  const { users } = useContext(UsersDataContext);
+
+  return users ? users.some((user) => email === user.email) : <></>;
+};
