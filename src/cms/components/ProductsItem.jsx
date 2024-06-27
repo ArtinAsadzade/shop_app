@@ -2,6 +2,7 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useContext, useEffect, useState } from "react";
 import YesOrNo from "../../components/YesOrNo";
 import { ProductDataContext } from "../../context/ProductDataContext";
+import { encrypted } from "../../Utils";
 
 export default function ProductItems(props) {
   const [show, setShow] = useState(false);
@@ -12,7 +13,7 @@ export default function ProductItems(props) {
   };
 
   useEffect(() => {
-    // localStorage.setItem("productsData", JSON.stringify(products));
+    encrypted(products, "productsData");
   }, [products]);
 
   const openYesOrNoModal = () => {

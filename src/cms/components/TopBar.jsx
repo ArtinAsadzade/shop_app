@@ -39,8 +39,8 @@ export default function TopBar() {
   return (
     <>
       <YesOrNo
-        title={"Back To Main Page!"}
-        desc={`Are You Sure For Back?`}
+        title={"برگشت به صفحه اصلی!"}
+        desc={`آیا از برگشت به صفحه اصلی مطمن هستید؟`}
         button={true}
         func={goToHomePage}
         show={show}

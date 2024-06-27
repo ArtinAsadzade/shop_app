@@ -1,30 +1,35 @@
+import { Link } from "react-router-dom";
+
 export default function Product(props) {
   return (
-    <div className="my-2 py-2 md:p-3 border rounded-xl flex items-center sm:inline hover:shadow-lg transition">
-      <div className="image-box sm:mb-6">
-        <img
-          src={props.img}
-          alt=""
-          className="hover:scale-105 transition rounded-md sm:rounded-3xl w-24 sm:w-full mx-auto"
-        />
+    <div className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 2xl:col-span-2 rounded-lg mb-10 mx-3 p-3 bg-white shadow-lg">
+      <div className="w-full p-5">
+        <img src={props.img} alt="" className="w-full object-cover" />
       </div>
       <div className="flex flex-col w-full">
-        <p className="text-xs sm:text-sm opacity-90 mb-5">{props.name}</p>
-        {props.offerPrice ? (
-          <div className="flex justify-end mb-2 text-sm opacity-80 pl-3 md:pl-0">
-            <p>{props.offerPrice}</p>
+        <p className="text-sm font-bold opacity-90 mb-5 block">{props.name}</p>
+        <div className="flex justify-between">
+          <div
+            className={`flex justify-end text-sm font-bold opacity-80 ${
+              props.offerPrice ? "line-through text-zinc-400" : ""
+            }`}
+          >
+            <p>{props.price}</p>
             <p>تومان</p>
           </div>
-        ) : (
-          <></>
-        )}
-        <div
-          className={`flex justify-end text-xs opacity-75 pl-3 md:pl-0 ${
-            props.offerPrice ? "line-through" : ""
-          }`}
-        >
-          <p>{props.price}</p>
-          <p>تومان</p>
+          {props.offerPrice ? (
+            <div className="flex justify-end mb-2 text-sm font-bold opacity-80">
+              <p>{props.offerPrice}</p>
+              <p>تومان</p>
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
+        <div className="w-full border-t-[1px] mt-2 text-red-600 font-bold py-3 flex items-center justify-center">
+          <Link to={""} className="">
+            مشاهده و خرید
+          </Link>
         </div>
       </div>
     </div>

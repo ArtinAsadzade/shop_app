@@ -115,7 +115,7 @@ export default function Login() {
               <div className="text-center text-sm">
                 {loginView ? "حساب کاربری نداری؟" : "حساب کاربری داری؟"}{" "}
                 <span
-                  className="text-red-500 cursor-pointer"
+                  className="text-red-600 cursor-pointer"
                   onClick={changeLoginSignUpHandler}
                 >
                   {loginView ? "یکی بساز" : "وارد شو"}

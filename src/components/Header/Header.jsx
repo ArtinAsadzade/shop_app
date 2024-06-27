@@ -11,7 +11,7 @@ export default function Header() {
     setShowNavBar((prevState) => (prevState = !prevState));
   };
   return (
-    <>
+    <div className="">
       <header className="p-5 container">
         <div className="flex items-center flex-wrap lg:flex-row lg:flex-1 justify-between">
           <Bars3Icon
@@ -26,6 +26,6 @@ export default function Header() {
         </div>
       </header>
       <Nav showNavBar={showNavBar} hamburgerHandler={hamburgerHandler} />
-    </>
+    </div>
   );
 }

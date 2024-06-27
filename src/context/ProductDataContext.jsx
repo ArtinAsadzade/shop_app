@@ -10,7 +10,7 @@ export default function ProductDataProvider({ children }) {
 
   useEffect(() => {
     setProducts(decryptedData);
-  }, [decryptedData, products]);
+  }, [decryptedData]);
 
   return (
     <ProductDataContext.Provider value={{ products, setProducts }}>

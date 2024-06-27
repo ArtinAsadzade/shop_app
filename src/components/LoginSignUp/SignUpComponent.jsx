@@ -4,7 +4,7 @@ import {
   EyeSlashIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { decrypted, encrypted, validateSignUp } from "../../Utils";
 
 export default function SignUpComponent({
@@ -23,6 +23,7 @@ export default function SignUpComponent({
   setToast,
   setLoginView,
 }) {
+  const [perm, setPerm] = useState(false);
   const decryptedData = decrypted("usersData");
   const validateSignUpResult = validateSignUp(value);
 
@@ -39,7 +40,7 @@ export default function SignUpComponent({
         password: password,
         email: email,
         profile: "",
-        perm: 1,
+        perm: perm ? 1 : 0,
       };
       toastMessage = {
         msg: "حساب کاربری با موفقیت ساخته شد",
@@ -59,10 +60,11 @@ export default function SignUpComponent({
         password: password,
         passwordRepeat: "",
       });
+      setPerm(false);
     } else {
       toastMessage = {
         msg: validateSignUpResult,
-        icon: <XMarkIcon className="w-5 text-red-500" />,
+        icon: <XMarkIcon className="w-5 text-red-600" />,
       };
       setShowToast(true);
       setToast(toastMessage);
@@ -82,6 +84,7 @@ export default function SignUpComponent({
     lastName,
     password,
     email,
+    perm,
     setShowToast,
     setToast,
     setLoginView,
@@ -229,6 +232,23 @@ export default function SignUpComponent({
           />
         </div>
       </div>
+      <div className="flex items-center space-x-3 mt-4">
+        <label
+          htmlFor="perm"
+          className="block text-sm font-medium leading-6 text-gray-900"
+        >
+          آیا میخواهید ادمین باشید؟
+        </label>
+        <input
+          checked={perm}
+          onChange={(e) => setPerm(e.target.checked)}
+          id="perm"
+          name="perm"
+          type="checkbox"
+          className="h-4 w-4 mx-10 rounded-md border-gray-300 text-red-600 checked:bg-red-500 checked:border-red-500"
+        />
+      </div>
+
       <div className="my-4">
         <button
           type="button"

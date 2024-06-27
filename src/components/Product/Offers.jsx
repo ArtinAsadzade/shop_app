@@ -1,12 +1,12 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import ProductOffer from "./ProductOffer";
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useDraggable } from "react-use-draggable-scroll";
-import { ProductDataContext } from "../../context/ProductDataContext";
+import { decrypted } from "../../Utils";
 
 export default function Offers() {
-  const { products } = useContext(ProductDataContext);
+  const decryptedData = decrypted("productsData");
   const draggScroll = useRef();
   const { events } = useDraggable(draggScroll);
 
@@ -27,7 +27,7 @@ export default function Offers() {
         ref={draggScroll}
       >
         <div className="w-full flex ">
-          {products?.map((item) => (
+          {decryptedData?.map((item) => (
             <ProductOffer key={item?.id} {...item} />
           ))}
         </div>

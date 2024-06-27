@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navData } from "../../data/data";
 import NavItems from "./NavItems";
 import Logo from "../Logo";
@@ -7,9 +7,24 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function Nav({ showNavBar, hamburgerHandler }) {
   const [navItems] = useState(navData);
+
+  useEffect(() => {
+    if (showNavBar) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "scroll";
+    }
+  }, [showNavBar]);
+
   return (
     <>
       {/* Mobile Nav */}
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-10 backdrop-blur-sm ${
+          showNavBar ? "block" : "hidden"
+        }`}
+        onClick={hamburgerHandler}
+      ></div>
       <nav
         className={`fixed z-50 lg:hidden top-0 right-0 bottom-0 flex-col w-5/6 max-w-sm py-5 px-6 bg-white border-r overflow-y-auto ${
           showNavBar ? "flex" : "hidden"
@@ -20,7 +35,7 @@ export default function Nav({ showNavBar, hamburgerHandler }) {
           onClick={hamburgerHandler}
         />
         <ul className="space-y-3">
-          <li className="border-b w-full  ">
+          <li className="border-b w-full">
             <Logo />
             <BasketLoginNav />
           </li>
