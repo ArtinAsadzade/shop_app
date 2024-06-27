@@ -1,4 +1,12 @@
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import {
+  CheckBadgeIcon,
+  EyeIcon,
+  EyeSlashIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { useCallback, useEffect } from "react";
+import { encrypted, userLogin } from "../../Utils";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginComponent({
   email,
@@ -6,7 +14,43 @@ export default function LoginComponent({
   handleValueChanges,
   showAndHidePasswordHandler,
   showPassword,
+  setShowToast,
+  setToast,
 }) {
+  const navigate = useNavigate();
+  const isLogin = userLogin(email, password);
+  useEffect(() => {}, []);
+
+  const submitHandler = useCallback(() => {
+    let toastMessage = { msg: "", icon: null };
+
+    if (isLogin) {
+      toastMessage = {
+        msg: "ورود موفقیت آمیز بود",
+        icon: <CheckBadgeIcon className="w-5 text-green-500" />,
+      };
+      encrypted(isLogin, "user");
+      setShowToast(true);
+      setToast(toastMessage);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+      setTimeout(() => {
+        navigate("/home");
+      }, 3000);
+    } else {
+      toastMessage = {
+        msg: "نام کاربری یا رمز عبور اشتباه است",
+        icon: <XMarkIcon className="w-5 text-red-500" />,
+      };
+      setShowToast(true);
+      setToast(toastMessage);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+    }
+  }, [isLogin, setShowToast, setToast, navigate]);
+
   return (
     <div className="px-4 sm:px-0">
       <div>
@@ -62,6 +106,15 @@ export default function LoginComponent({
             placeholder="رمز عبور خود را وارد کنید"
           />
         </div>
+      </div>
+      <div className="my-4">
+        <button
+          type="button"
+          onClick={submitHandler}
+          className="w-full flex justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+        >
+          ورود
+        </button>
       </div>
     </div>
   );

@@ -1,14 +1,10 @@
-import { useCallback, useState, useEffect, useMemo } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import YesOrNo from "./../components/YesOrNo";
-import { CheckBadgeIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { userLogin, validateSignUp } from "../Utils";
 import { motion } from "framer-motion";
 import Toast from "../components/Toast";
 import LogionComponent from "../components/LoginSignUp/LogionComponent";
 import SignUpComponent from "../components/LoginSignUp/SignUpComponent";
-import useEncrypted from "../hooks/useEncrypted";
-import useDecrypted from "../hooks/useDecrypted";
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -24,18 +20,7 @@ export default function Login() {
     passwordRepeat: "",
   });
   const [loginView, setLoginView] = useState(true);
-
-  const decryptedData = useDecrypted("usersData");
-
   const navigate = useNavigate();
-
-  const isLogin = useMemo(() => {
-    console.log(value.password);
-    return userLogin(value.email, value.password);
-  }, [value.email, value.password]);
-  const validationResult = useMemo(() => {
-    return validateSignUp(value);
-  }, [value]);
 
   const showAndHidePasswordHandler = useCallback(() => {
     setShowPassword((prevState) => !prevState);
@@ -48,86 +33,6 @@ export default function Login() {
       [name]: inputValue,
     }));
   }, []);
-
-  const submitHandler = useCallback(() => {
-    console.log(isLogin);
-    if (loginView) {
-      if (isLogin) {
-        useEncrypted(isLogin, "user");
-        setShowToast(true);
-        setToast({
-          msg: "ورود موفقیت آمیز بود",
-          icon: <CheckBadgeIcon className="w-5 text-green-500" />,
-        });
-        setTimeout(() => {
-          setShowToast(false);
-        }, 5000);
-        setTimeout(() => {
-          navigate("/home");
-        }, 3000);
-      } else {
-        setShowToast(true);
-        setToast({
-          msg: "نام کاربری یا رمز عبور اشتباه است",
-          icon: <XMarkIcon className="w-5 text-red-500" />,
-        });
-        setTimeout(() => {
-          setShowToast(false);
-        }, 5000);
-      }
-    } else {
-      if (validationResult === true) {
-        const newUser = {
-          id: decryptedData.length + 1,
-          userName: value.userName,
-          firstName: value.firstName,
-          lastName: value.lastName,
-          password: value.password,
-          email: value.email,
-          profile: "",
-          perm: 1,
-        };
-        useEncrypted([...decryptedData, newUser], "usersData");
-        setShowToast(true);
-        setToast({
-          msg: "حساب کاربری با موفقیت ساخته شد",
-          icon: <CheckBadgeIcon className="w-5 text-green-500" />,
-        });
-        setTimeout(() => {
-          setShowToast(false);
-        }, 5000);
-        setLoginView(true);
-        setValue({
-          userName: "",
-          email: value.userName,
-          lastName: "",
-          firstName: "",
-          password: value.password,
-          passwordRepeat: "",
-        });
-      } else {
-        setShowToast(true);
-        setToast({
-          msg: validationResult,
-          icon: <XMarkIcon className="w-5 text-red-500" />,
-        });
-        setTimeout(() => {
-          setShowToast(false);
-        }, 5000);
-      }
-    }
-  }, [
-    decryptedData,
-    isLogin,
-    loginView,
-    navigate,
-    validationResult,
-    value.email,
-    value.firstName,
-    value.lastName,
-    value.password,
-    value.userName,
-  ]);
 
   const changeLoginSignUpHandler = useCallback(() => {
     setLoginView((prevLoginView) => !prevLoginView);
@@ -186,6 +91,8 @@ export default function Login() {
                   handleValueChanges={handleValueChanges}
                   showAndHidePasswordHandler={showAndHidePasswordHandler}
                   showPassword={showPassword}
+                  setShowToast={setShowToast}
+                  setToast={setToast}
                 />
               ) : (
                 <SignUpComponent
@@ -198,17 +105,13 @@ export default function Login() {
                   handleValueChanges={handleValueChanges}
                   showAndHidePasswordHandler={showAndHidePasswordHandler}
                   showPassword={showPassword}
+                  setValue={setValue}
+                  value={value}
+                  setShowToast={setShowToast}
+                  setToast={setToast}
+                  setLoginView={setLoginView}
                 />
               )}
-              <div>
-                <button
-                  type="button"
-                  onClick={submitHandler}
-                  className="w-full flex justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                >
-                  {loginView ? "ورود" : "ثبت نام"}
-                </button>
-              </div>
               <div className="text-center text-sm">
                 {loginView ? "حساب کاربری نداری؟" : "حساب کاربری داری؟"}{" "}
                 <span
