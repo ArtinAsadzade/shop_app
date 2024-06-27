@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
 
 export const encrypted = (data, key) => {
@@ -10,55 +9,29 @@ export const encrypted = (data, key) => {
 };
 
 export const decrypted = (key) => {
-  const [decryptedData, setDecryptedData] = useState();
-
-  useEffect(() => {
-    const encryptedData = localStorage.getItem(key);
-    if (encryptedData) {
-      try {
-        const bytes = CryptoJS.AES.decrypt(
-          encryptedData,
-          import.meta.env.VITE_SECRET_KEY
-        );
-        const data = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-        setDecryptedData(data);
-      } catch (error) {
-        setDecryptedData([]);
-      }
+  const encryptedData = localStorage.getItem(key);
+  if (encryptedData) {
+    try {
+      const bytes = CryptoJS.AES.decrypt(
+        encryptedData,
+        import.meta.env.VITE_SECRET_KEY
+      );
+      return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    } catch (error) {
+      return [];
     }
-  }, [key]);
-
-  return decryptedData;
-};
-
-export const userLogin = (userName, userPassword) => {
-  const decryptedData = decrypted("usersData");
-
-  return decryptedData ? (
-    decryptedData.find(
-      (user) =>
-        userPassword === user.password &&
-        (user.email === userName || user.userName === userName)
-    )
-  ) : (
-    <></>
-  );
+  }
+  return [];
 };
 
 export const checkUserNameExists = (userName) => {
   const decryptedData = decrypted("usersData");
-
-  return decryptedData
-    ? decryptedData.some((user) => userName === user.userName)
-    : false;
+  return decryptedData.some((user) => userName === user.userName);
 };
 
 export const checkUserEmailExists = (email) => {
   const decryptedData = decrypted("usersData");
-
-  return decryptedData
-    ? decryptedData.some((user) => email === user.email)
-    : false;
+  return decryptedData.some((user) => email === user.email);
 };
 
 export const validateSignUp = (values) => {
@@ -75,5 +48,20 @@ export const validateSignUp = (values) => {
   if (checkUserEmailExists(email)) {
     return "ایمیل از قبل موجود است.";
   }
+
   return true;
+};
+
+export const userLogin = (userName, userPassword) => {
+  const decryptedData = decrypted("usersData");
+
+  return decryptedData ? (
+    decryptedData.find(
+      (user) =>
+        userPassword === user.password &&
+        (user.email === userName || user.userName === userName)
+    )
+  ) : (
+    <></>
+  );
 };
