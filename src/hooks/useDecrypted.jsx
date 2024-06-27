@@ -15,7 +15,6 @@ const useDecrypted = (key) => {
         const data = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
         setDecryptedData(data);
       } catch (error) {
-        console.error(`Error decrypting data: ${error.message}`);
         setDecryptedData([]);
       }
     }
