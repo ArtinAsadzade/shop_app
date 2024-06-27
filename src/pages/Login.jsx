@@ -1,13 +1,14 @@
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import YesOrNo from "./../components/YesOrNo";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import { checkUserEmailExists, checkUserNameExists, userLogin } from "../Utils";
-import useEncrypted from "../hooks/useEncrypted";
+import { CheckBadgeIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { userLogin, validateSignUp } from "../Utils";
 import { motion } from "framer-motion";
 import Toast from "../components/Toast";
 import LogionComponent from "../components/LoginSignUp/LogionComponent";
 import SignUpComponent from "../components/LoginSignUp/SignUpComponent";
+import useEncrypted from "../hooks/useEncrypted";
+import useDecrypted from "../hooks/useDecrypted";
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -23,28 +24,47 @@ export default function Login() {
     passwordRepeat: "",
   });
   const [loginView, setLoginView] = useState(true);
-  const isLogin = userLogin(value.email, value.password);
-  const isUserNameTaken = checkUserNameExists(value.userName);
-  const isEmailTaken = checkUserEmailExists(value.email);
+
+  const decryptedData = useDecrypted("usersData");
 
   const navigate = useNavigate();
+
+  const isLogin = useMemo(() => {
+    console.log(value.password);
+    return userLogin(value.email, value.password);
+  }, [value.email, value.password]);
+  const validationResult = useMemo(() => {
+    return validateSignUp(value);
+  }, [value]);
 
   const showAndHidePasswordHandler = useCallback(() => {
     setShowPassword((prevState) => !prevState);
   }, []);
 
-  const handleValueChanges = (e) => {
-    setValue({
-      ...value,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const handleValueChanges = useCallback((e) => {
+    const { name, value: inputValue } = e.target;
+    setValue((prevValue) => ({
+      ...prevValue,
+      [name]: inputValue,
+    }));
+  }, []);
 
   const submitHandler = useCallback(() => {
+    console.log(isLogin);
     if (loginView) {
       if (isLogin) {
         useEncrypted(isLogin, "user");
-        navigate("/home");
+        setShowToast(true);
+        setToast({
+          msg: "ورود موفقیت آمیز بود",
+          icon: <CheckBadgeIcon className="w-5 text-green-500" />,
+        });
+        setTimeout(() => {
+          setShowToast(false);
+        }, 5000);
+        setTimeout(() => {
+          navigate("/home");
+        }, 3000);
       } else {
         setShowToast(true);
         setToast({
@@ -56,19 +76,39 @@ export default function Login() {
         }, 5000);
       }
     } else {
-      if (isEmailTaken) {
+      if (validationResult === true) {
+        const newUser = {
+          id: decryptedData.length + 1,
+          userName: value.userName,
+          firstName: value.firstName,
+          lastName: value.lastName,
+          password: value.password,
+          email: value.email,
+          profile: "",
+          perm: 1,
+        };
+        useEncrypted([...decryptedData, newUser], "usersData");
         setShowToast(true);
         setToast({
-          msg: "ایمیل وارد شده قبلاً ثبت شده است",
-          icon: <XMarkIcon className="w-5 text-red-500" />,
+          msg: "حساب کاربری با موفقیت ساخته شد",
+          icon: <CheckBadgeIcon className="w-5 text-green-500" />,
         });
         setTimeout(() => {
           setShowToast(false);
         }, 5000);
-      } else if (isUserNameTaken) {
+        setLoginView(true);
+        setValue({
+          userName: "",
+          email: value.userName,
+          lastName: "",
+          firstName: "",
+          password: value.password,
+          passwordRepeat: "",
+        });
+      } else {
         setShowToast(true);
         setToast({
-          msg: "نام کاربری وارد شده قبلاً ثبت شده است",
+          msg: validationResult,
           icon: <XMarkIcon className="w-5 text-red-500" />,
         });
         setTimeout(() => {
@@ -76,11 +116,30 @@ export default function Login() {
         }, 5000);
       }
     }
-  }, [isEmailTaken, isLogin, isUserNameTaken, loginView, navigate]);
+  }, [
+    decryptedData,
+    isLogin,
+    loginView,
+    navigate,
+    validationResult,
+    value.email,
+    value.firstName,
+    value.lastName,
+    value.password,
+    value.userName,
+  ]);
 
   const changeLoginSignUpHandler = useCallback(() => {
-    setLoginView(!loginView);
-  }, [loginView]);
+    setLoginView((prevLoginView) => !prevLoginView);
+    setValue({
+      userName: "",
+      email: "",
+      lastName: "",
+      firstName: "",
+      password: "",
+      passwordRepeat: "",
+    });
+  }, []);
 
   const formSubmitHandler = useCallback((e) => {
     e.preventDefault();
