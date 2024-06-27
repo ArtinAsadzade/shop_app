@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { UsersDataContext } from "./context/UsersDataContext";
+import useDecrypted from "./hooks/useDecrypted";
 export const userLogin = (userName, userPassword) => {
-  const { users } = useContext(UsersDataContext);
+  const decryptedData = useDecrypted("usersData");
 
-  return users ? (
-    users.find(
+  return decryptedData ? (
+    decryptedData.find(
       (user) =>
         userPassword === user.password &&
         (user.email === userName || user.userName === userName)
@@ -15,13 +14,34 @@ export const userLogin = (userName, userPassword) => {
 };
 
 export const checkUserNameExists = (userName) => {
-  const { users } = useContext(UsersDataContext);
+  const decryptedData = useDecrypted("usersData");
 
-  return users ? users.some((user) => userName === user.userName) : <></>;
+  return decryptedData
+    ? decryptedData.some((user) => userName === user.userName)
+    : false;
 };
 
 export const checkUserEmailExists = (email) => {
-  const { users } = useContext(UsersDataContext);
+  const decryptedData = useDecrypted("usersData");
 
-  return users ? users.some((user) => email === user.email) : <></>;
+  return decryptedData
+    ? decryptedData.some((user) => email === user.email)
+    : false;
+};
+
+export const validateSignUp = (values) => {
+  const { userName, email, password, passwordRepeat } = values;
+
+  if (password !== passwordRepeat) {
+    return "رمزهای عبور با هم مطابقت ندارند.";
+  }
+
+  if (checkUserNameExists(userName)) {
+    return "نام کاربری از قبل موجود است.";
+  }
+
+  if (checkUserEmailExists(email)) {
+    return "ایمیل از قبل موجود است.";
+  }
+  return true;
 };
