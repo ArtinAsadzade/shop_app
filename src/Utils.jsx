@@ -1,6 +1,38 @@
-import useDecrypted from "./hooks/useDecrypted";
+import { useEffect, useState } from "react";
+import CryptoJS from "crypto-js";
+
+export const encrypted = (data, key) => {
+  const encryptedData = CryptoJS.AES.encrypt(
+    JSON.stringify(data),
+    import.meta.env.VITE_SECRET_KEY
+  ).toString();
+  localStorage.setItem(key, encryptedData);
+};
+
+export const decrypted = (key) => {
+  const [decryptedData, setDecryptedData] = useState();
+
+  useEffect(() => {
+    const encryptedData = localStorage.getItem(key);
+    if (encryptedData) {
+      try {
+        const bytes = CryptoJS.AES.decrypt(
+          encryptedData,
+          import.meta.env.VITE_SECRET_KEY
+        );
+        const data = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+        setDecryptedData(data);
+      } catch (error) {
+        setDecryptedData([]);
+      }
+    }
+  }, [key]);
+
+  return decryptedData;
+};
+
 export const userLogin = (userName, userPassword) => {
-  const decryptedData = useDecrypted("usersData");
+  const decryptedData = decrypted("usersData");
 
   return decryptedData ? (
     decryptedData.find(
@@ -14,7 +46,7 @@ export const userLogin = (userName, userPassword) => {
 };
 
 export const checkUserNameExists = (userName) => {
-  const decryptedData = useDecrypted("usersData");
+  const decryptedData = decrypted("usersData");
 
   return decryptedData
     ? decryptedData.some((user) => userName === user.userName)
@@ -22,7 +54,7 @@ export const checkUserNameExists = (userName) => {
 };
 
 export const checkUserEmailExists = (email) => {
-  const decryptedData = useDecrypted("usersData");
+  const decryptedData = decrypted("usersData");
 
   return decryptedData
     ? decryptedData.some((user) => email === user.email)
