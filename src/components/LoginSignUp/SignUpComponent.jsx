@@ -1,4 +1,11 @@
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import {
+  CheckBadgeIcon,
+  EyeIcon,
+  EyeSlashIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { useCallback } from "react";
+import { decrypted, encrypted, validateSignUp } from "../../Utils";
 
 export default function SignUpComponent({
   firstName,
@@ -10,7 +17,77 @@ export default function SignUpComponent({
   handleValueChanges,
   showAndHidePasswordHandler,
   showPassword,
+  setValue,
+  value,
+  setShowToast,
+  setToast,
+  setLoginView,
 }) {
+  const decryptedData = decrypted("usersData");
+  const validateSignUpResult = validateSignUp(value);
+
+  const submitHandler = useCallback(() => {
+    let newUser = null;
+    let toastMessage = { msg: "", icon: null };
+
+    if (validateSignUpResult === true) {
+      newUser = {
+        id: decryptedData.length + 1,
+        userName: userName,
+        firstName: firstName,
+        lastName: lastName,
+        password: password,
+        email: email,
+        profile: "",
+        perm: 1,
+      };
+      toastMessage = {
+        msg: "حساب کاربری با موفقیت ساخته شد",
+        icon: <CheckBadgeIcon className="w-5 text-green-500" />,
+      };
+      setShowToast(true);
+      setToast(toastMessage);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+      setLoginView(true);
+      setValue({
+        userName: "",
+        email: userName,
+        lastName: "",
+        firstName: "",
+        password: password,
+        passwordRepeat: "",
+      });
+    } else {
+      toastMessage = {
+        msg: validateSignUpResult,
+        icon: <XMarkIcon className="w-5 text-red-500" />,
+      };
+      setShowToast(true);
+      setToast(toastMessage);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+    }
+
+    if (newUser) {
+      encrypted([...decryptedData, newUser], "usersData");
+    }
+  }, [
+    validateSignUpResult,
+    decryptedData,
+    userName,
+    firstName,
+    lastName,
+    password,
+    email,
+    setShowToast,
+    setToast,
+    setLoginView,
+    setValue,
+  ]);
+
   return (
     <div className="px-4 sm:px-0">
       <div className="flex flex-col sm:flex-row sm:justify-between gap-4">
@@ -151,6 +228,15 @@ export default function SignUpComponent({
             placeholder="تکرار رمز عبور خود را وارد کنید"
           />
         </div>
+      </div>
+      <div className="my-4">
+        <button
+          type="button"
+          onClick={submitHandler}
+          className="w-full flex justify-center rounded-md bg-red-500 px-3 py-2 text-sm font-semibold text-white hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+        >
+          ثبت نام
+        </button>
       </div>
     </div>
   );
