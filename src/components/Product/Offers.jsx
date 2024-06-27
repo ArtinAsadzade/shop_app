@@ -17,7 +17,7 @@ export default function Offers() {
           پرتخفیف ترین ها
         </h2>
         <Link to="/shop" className="flex text-red-600 text-sm">
-          دیدن همه <ArrowLeftIcon className="w-4" />
+          دیدن همه <ArrowLeftIcon className="w-4 mb-1" />
         </Link>
       </div>
 
