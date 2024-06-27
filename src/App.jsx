@@ -7,6 +7,7 @@ import ProductDataProvider from "./context/ProductDataContext";
 import { UsersData, productsData } from "./data/data";
 import { useEffect } from "react";
 import useEncrypted from "./hooks/useEncrypted";
+import useDecrypted from "./hooks/useDecrypted";
 
 function App() {
   const router = useRoutes(routers);
