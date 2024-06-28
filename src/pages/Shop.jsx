@@ -15,11 +15,11 @@ export default function Shop() {
       <Header />
       <div className="mx-auto bg-slate-100 my-5 px-3">
         <div className="flex w-full py-5 text-red-600">
-          <div className="w-full bg-white mx-3 p-2 rounded-lg flex items-center justify-center">
+          <div className="w-full cursor-pointer hover:shadow-md transition-all bg-white mx-3 p-2 rounded-lg flex items-center justify-center">
             <FunnelIcon className="w-5 mx-1" />
             فیلتر
           </div>
-          <div className="w-full bg-white mx-3 p-2 rounded-lg flex items-center justify-center">
+          <div className="w-full cursor-pointer hover:shadow-md transition-all bg-white mx-3 p-2 rounded-lg flex items-center justify-center">
             <AdjustmentsVerticalIcon className="w-5 mx-1" />
             مرتب سازی
           </div>
