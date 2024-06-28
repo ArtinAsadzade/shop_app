@@ -7,10 +7,10 @@ export default function Product(props) {
         <img src={props.img} alt="" className="w-full object-cover" />
       </div>
       <div className="flex flex-col w-full">
-        <p className="text-sm font-bold opacity-90 mb-5 block">{props.name}</p>
+        <p className="text-sm font-bold mb-5 block">{props.name}</p>
         <div className="flex justify-between">
           <div
-            className={`flex justify-end text-sm font-bold opacity-80 ${
+            className={`flex justify-end text-sm font-bold ${
               props.offerPrice ? "line-through text-zinc-400" : ""
             }`}
           >
@@ -18,7 +18,7 @@ export default function Product(props) {
             <p>تومان</p>
           </div>
           {props.offerPrice ? (
-            <div className="flex justify-end mb-2 text-sm font-bold opacity-80">
+            <div className="flex justify-end mb-2 text-sm font-bold">
               <p>{props.offerPrice}</p>
               <p>تومان</p>
             </div>
