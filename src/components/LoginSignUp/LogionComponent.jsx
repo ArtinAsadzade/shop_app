@@ -32,12 +32,10 @@ export default function LoginComponent({
       encrypted(isLogin, "user");
       setShowToast(true);
       setToast(toastMessage);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 5000);
+
       setTimeout(() => {
         navigate("/home");
-      }, 3000);
+      }, 2000);
     } else {
       toastMessage = {
         msg: "نام کاربری یا رمز عبور اشتباه است",
@@ -45,9 +43,6 @@ export default function LoginComponent({
       };
       setShowToast(true);
       setToast(toastMessage);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 5000);
     }
   }, [isLogin, setShowToast, setToast, navigate]);
 

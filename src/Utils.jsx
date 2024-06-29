@@ -66,3 +66,43 @@ export const userLogin = (userName, userPassword) => {
     <></>
   );
 };
+
+export const calculateDiscountPercentage = (originalPrice, discountedPrice) => {
+  if (originalPrice <= 0) {
+    return "قیمت اصلی باید بزرگتر از صفر باشد";
+  }
+  if (discountedPrice < 0) {
+    return "قیمت بعد از تخفیف نمی‌تواند منفی باشد";
+  }
+
+  let discount = originalPrice - discountedPrice;
+  let discountPercentage = (discount / originalPrice) * 100;
+  return Math.round(discountPercentage);
+};
+
+export const lastOfferProductHandler = () => {
+  const decryptedData = decrypted("productsData");
+
+  if (!decryptedData || decryptedData.length === 0) {
+    return "هیچ محصولی یافت نشد";
+  }
+
+  let bestOfferProduct = null;
+  let highestDiscountPercentage = 0;
+
+  for (const product of decryptedData) {
+    const discountPercentage = calculateDiscountPercentage(
+      product.price,
+      product.offerPrice
+    );
+    if (
+      typeof discountPercentage === "number" &&
+      discountPercentage > highestDiscountPercentage
+    ) {
+      highestDiscountPercentage = discountPercentage;
+      bestOfferProduct = product;
+    }
+  }
+
+  return bestOfferProduct || "هیچ محصولی با تخفیف یافت نشد";
+};

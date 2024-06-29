@@ -48,9 +48,6 @@ export default function SignUpComponent({
       };
       setShowToast(true);
       setToast(toastMessage);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 5000);
       setLoginView(true);
       setValue({
         userName: "",
@@ -68,9 +65,6 @@ export default function SignUpComponent({
       };
       setShowToast(true);
       setToast(toastMessage);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 5000);
     }
 
     if (newUser) {
