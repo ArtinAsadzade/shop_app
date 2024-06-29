@@ -13,11 +13,13 @@ import Feedback from "./cms/pages/Feedback";
 import Manage from "./cms/pages/Manage";
 import NewProduct from "./cms/components/NewProduct";
 import Login from "./pages/Login";
+import ProductInfo from "./components/Product/ProductInfo";
 
 export const routers = [
   { path: "/", element: <Main /> },
   { path: "/home", element: <Main /> },
   { path: "/shop", element: <Shop /> },
+  { path: "/productInfo/:productId", element: <ProductInfo /> },
   { path: "/loginRegister", element: <Login /> },
   {
     path: "/admin",
