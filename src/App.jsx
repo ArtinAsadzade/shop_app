@@ -6,8 +6,7 @@ import UsersDataProvider from "./context/UsersDataContext";
 import ProductDataProvider from "./context/ProductDataContext";
 import { UsersData, productsData } from "./data/data";
 import { useEffect } from "react";
-import useEncrypted from "./hooks/useEncrypted";
-import useDecrypted from "./hooks/useDecrypted";
+import { decrypted, encrypted } from "./Utils";
 
 function App() {
   const router = useRoutes(routers);
@@ -18,9 +17,9 @@ function App() {
       !localStorage.getItem("productsData")
     ) {
       if (!localStorage.getItem("usersData")) {
-        useEncrypted(UsersData, "usersData");
+        encrypted(UsersData, "usersData");
       } else if (!localStorage.getItem("productsData")) {
-        useEncrypted(productsData, "productsData");
+        encrypted(productsData, "productsData");
       }
     }
   }, []);

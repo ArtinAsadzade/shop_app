@@ -18,10 +18,11 @@ export const decrypted = (key) => {
       );
       return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
     } catch (error) {
+      localStorage.clear();
+      location.reload();
       return [];
     }
-  }
-  return [];
+  } else return [];
 };
 
 export const checkUserNameExists = (userName) => {
