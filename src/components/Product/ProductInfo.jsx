@@ -3,8 +3,10 @@ import { decrypted } from "../../Utils";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 
 export default function ProductInfo() {
+  const [activeColor, setActiveColor] = useState("blue");
   const decryptedData = decrypted("productsData");
   const params = useParams();
   const productData = decryptedData.find((item) => item.id == params.productId);
@@ -14,7 +16,7 @@ export default function ProductInfo() {
       <Header />
       {productData ? (
         <>
-          <div className="w-full h-svh mx-auto bg-slate-100 p-3">
+          <div className="w-full  mx-auto bg-slate-100 p-3">
             <div className="bg-white p-5 rounded-lg shadow-md">
               <div className="flex justify-center">
                 <img src={productData.img} alt="" />
@@ -29,7 +31,8 @@ export default function ProductInfo() {
                   {productData?.colors?.map((color) => (
                     <div
                       key={color}
-                      className={`${color === "black" || color === "white" ? `bg-${color}` : `bg-${color}-500`} p-[10px] rounded-full mx-[1px]`}
+                      style={{ background: color }}
+                      className={`p-[10px] rounded-full mx-[2px] ${color === activeColor ? "ring-2 ring-white" : ""}`}
                     ></div>
                   ))}
                 </div>
@@ -51,7 +54,7 @@ export default function ProductInfo() {
               <p className="text-zinc-400 my-2">{productData.desc}</p>
             </div>
           </div>
-          <div className="w-full flex justify-between items-center font-bold fixed bg-white p-5 bottom-0">
+          <div className="w-full flex justify-between items-center font-bold fixed bg-white p-5 bottom-0 border-t-[1px]">
             <button className="w-1/2 flex items-center justify-center bg-red-500 py-3 px-1 rounded-lg text-white text-sm">
               افزودن به سبد خرید <ShoppingCartIcon className="w-5" />
             </button>

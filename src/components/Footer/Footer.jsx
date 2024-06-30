@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  footerItemsData,
-  linksData,
-  namadData,
-  socialLinksData,
-} from "../../data/data";
+import { footerItemsData, linksData, namadData, socialLinksData } from "../../data/data";
 import FooterItems from "./FooterItems";
 import Logo from "../Logo";
 import SocialItems from "./SocialItems";
@@ -21,7 +16,7 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <footer className="py-5 shadow-xl bg-white ">
+    <footer className="py-5 shadow-xl bg-white block">
       <div className="p-5">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-y-5 gap-x-10 justify-items-center mb-10">
           {navItems.map((item) => (
@@ -30,10 +25,7 @@ export default function Footer() {
         </div>
         <div className="flex items-center justify-between my-4 px-5">
           <Logo />
-          <button
-            onClick={goToUpHandler}
-            className="flex items-center gap-x-1 border rounded-lg px-3 py-2 text-zinc-500 text-sm md:text-base"
-          >
+          <button onClick={goToUpHandler} className="flex items-center gap-x-1 border rounded-lg px-3 py-2 text-zinc-500 text-sm md:text-base">
             برو به بالا <ChevronUpIcon className="w-5" />
           </button>
         </div>
@@ -42,11 +34,9 @@ export default function Footer() {
             <div className="mx-auto flex flex-wrap">
               <h1 className="mb-2 text-lg">فروشگاه اینترنتی ایران مارکت</h1>
               <p className="mb-7  text-sm">
-                ایران مارکت به عنوان یکی از بروزترین فروشگاه های اینترنتی با بیش
-                از هفت سال تجربه، با پایبندی به اعتماد مشتری، موفق شده تا با
-                فروشگاه‌های معتبر ایران به یکی از بزرگ‌ترین فروشگاه اینترنتی
-                کشور تبدیل شود. هر آنچه که فکرش را بکنید و به ذهن شما خطور
-                می‌کند در اینجا پیدا خواهید کرد.
+                ایران مارکت به عنوان یکی از بروزترین فروشگاه های اینترنتی با بیش از هفت سال تجربه، با پایبندی به اعتماد مشتری، موفق شده تا با
+                فروشگاه‌های معتبر ایران به یکی از بزرگ‌ترین فروشگاه اینترنتی کشور تبدیل شود. هر آنچه که فکرش را بکنید و به ذهن شما خطور می‌کند در
+                اینجا پیدا خواهید کرد.
               </p>
             </div>
           </div>
@@ -54,11 +44,7 @@ export default function Footer() {
             <div className="mb-10 w-full flex flex-col">
               <h1 className="mb-2">لینک های مفید:</h1>
               {links.map((item) => (
-                <a
-                  href={item.link}
-                  key={item.id}
-                  className="m-2 text-sm hover:text-red-600 transition "
-                >
+                <a href={item.link} key={item.id} className="m-2 text-sm hover:text-red-600 transition ">
                   {item.title}
                 </a>
               ))}

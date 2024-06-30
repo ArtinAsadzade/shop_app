@@ -127,7 +127,7 @@ export const productsData = [
     ename: "Watch",
     name: "ساعت",
     price: 500000,
-    offerPrice: 450000,
+    offerPrice: 4500,
     count: 20,
     img: "/images/Watch.webp",
     desc: "ساعت با طراحی زیبا و کیفیت بالا، مناسب برای استفاده روزمره و مجالس رسمی.",
