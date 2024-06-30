@@ -7,7 +7,7 @@ export default function ProductOffer(props) {
     !!props.offerPrice &&
     !!props.count && (
       <Link
-        to={`/productInfo/${props.id}`}
+        to={`/shop/product${props.id}`}
         className="relative md:w-1/3 rounded-lg sm:w-1/3 lg:w-1/6 w-1/2 bg-white shadow-lg flex-shrink-0 my-5 p-5 hover:scale-105 hover:shadow-2xl transition-all cursor-pointer mx-3"
       >
         <img src={props.img} alt="" className=" transition my-3" />
