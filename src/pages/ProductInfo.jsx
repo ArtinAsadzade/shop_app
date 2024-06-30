@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { decrypted } from "../../Utils";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import { decrypted } from "../Utils";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import { BuildingStorefrontIcon, CheckIcon, PaperAirplaneIcon, ShieldCheckIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
@@ -87,19 +87,23 @@ export default function ProductInfo() {
                         <p className={`${productData.offerPrice ? "text-zinc-400 line-through text-sm" : "text-black"}`}>{productData.price} تومان</p>
                         {productData.offerPrice ? <p>{productData.offerPrice} تومان</p> : <></>}
                       </div>
-                      <button className="w-full mt-5 flex items-center justify-center bg-red-500 py-3 px-1 rounded-lg text-white text-sm">
-                        افزودن به سبد خرید <ShoppingCartIcon className="w-5" />
+                      <button className="w-full mt-5 flex gap-1 items-center justify-center bg-red-500 py-3 px-1 rounded-lg text-white text-sm">
+                        <ShoppingCartIcon className="w-5" />
+                        افزودن به سبد خرید
                       </button>
                     </div>
                   </div>
                 </div>
                 <div className="block">
                   <h2 className="font-bold mt-16">ویژگی های کالا :</h2>
-                  <div className="w-full">
+                  <div className="w-full grid grid-cols-12 gap-5">
                     {productData?.propertys?.map((property) => (
-                      <div key={property} className="w-full bg-slate-100 flex px-3 py-2 my-3 rounded-md flex-col">
+                      <div
+                        key={property}
+                        className="w-full col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 bg-slate-100 flex flex-1 px-3 py-2 my-3 rounded-md flex-col"
+                      >
                         <h1 className="font-bold">{property.title}</h1>
-                        <p className="text-zinc-400 text-center my-2">{property.desc}</p>
+                        <p className="text-zinc-600 text-center my-2">{property.desc}</p>
                       </div>
                     ))}
                   </div>

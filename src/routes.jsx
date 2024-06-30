@@ -13,7 +13,8 @@ import Feedback from "./cms/pages/Feedback";
 import Manage from "./cms/pages/Manage";
 import NewProduct from "./cms/components/NewProduct";
 import Login from "./pages/Login";
-import ProductInfo from "./components/Product/ProductInfo";
+import ProductInfo from "./pages/ProductInfo";
+import UserBasket from "./pages/UserBasket";
 
 export const routers = [
   { path: "/", element: <Main /> },
@@ -21,6 +22,7 @@ export const routers = [
   { path: "/shop", element: <Shop /> },
   { path: "/shop/:productId", element: <ProductInfo /> },
   { path: "/loginRegister", element: <Login /> },
+  { path: "/cart", element: <UserBasket /> },
   {
     path: "/admin",
     element: <PrivateRouts />,

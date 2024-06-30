@@ -20,28 +20,23 @@ export default function Nav({ showNavBar, hamburgerHandler }) {
     <>
       {/* Mobile Nav */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-10 backdrop-blur-sm ${
-          showNavBar ? "block" : "hidden"
+        className={`fixed inset-0 transition-all duration-300 bg-black bg-opacity-10 backdrop-blur-sm ${
+          showNavBar ? "block" : "invisible opacity-0"
         }`}
         onClick={hamburgerHandler}
       ></div>
       <nav
-        className={`fixed z-50 lg:hidden top-0 right-0 bottom-0 flex-col w-5/6 max-w-sm py-5 px-6 bg-white border-r overflow-y-auto ${
-          showNavBar ? "flex" : "hidden"
+        className={`fixed transition-all duration-300 z-50 lg:hidden top-0 right-0 bottom-0 flex-col w-5/6 max-w-sm py-5 px-6 bg-white border-r overflow-y-auto ${
+          showNavBar ? "flex" : "invisible opacity-0 translate-x-96"
         }`}
       >
-        <XMarkIcon
-          className="w-7 cursor-pointer text-red-600"
-          onClick={hamburgerHandler}
-        />
+        <XMarkIcon className="w-7 cursor-pointer text-red-600" onClick={hamburgerHandler} />
         <ul className="space-y-3">
           <li className="border-b w-full">
             <Logo />
             <BasketLoginNav />
           </li>
-          {navItems.map(
-            (item) => !item.active && <NavItems key={item.id} {...item} />
-          )}
+          {navItems.map((item) => !item.active && <NavItems key={item.id} {...item} />)}
         </ul>
       </nav>
       {/* Lg Nav */}

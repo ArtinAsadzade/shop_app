@@ -1,14 +1,13 @@
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import TopBar from "../cms/components/TopBar";
 import SideBar from "../cms/components/SideBar";
 import { useEffect, useState } from "react";
-import useDecrypted from "../hooks/useDecrypted";
+import { decrypted } from "../Utils";
 
 export default function PrivateRouts() {
-  const navigate = useNavigate();
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
-  const decryptedData = useDecrypted("user");
+  const decryptedData = decrypted("user");
 
   useEffect(() => {
     if (decryptedData) {
@@ -20,7 +19,7 @@ export default function PrivateRouts() {
   return (
     <>
       {loading ? (
-        <>loade</>
+        <>loading</>
       ) : user.perm ? (
         <>
           <TopBar />{" "}

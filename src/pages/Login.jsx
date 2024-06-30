@@ -65,12 +65,7 @@ export default function Login() {
         show={show}
         setShow={setShow}
       />
-      <Toast
-        show={showToast}
-        setShow={setShowToast}
-        icon={toast.icon}
-        msg={toast.msg}
-      />
+      <Toast show={showToast} setShow={setShowToast} icon={toast.icon} msg={toast.msg} />
       <div className="flex items-center justify-center min-h-screen bg-gray-200 px-4 py-12 lg:px-8">
         <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-md">
           <motion.div
@@ -80,9 +75,7 @@ export default function Login() {
             exit={{ opacity: 0, y: 100 }}
             transition={{ duration: 1 }}
           >
-            <h2 className="text-center text-2xl font-bold text-gray-900 mb-6">
-              {loginView ? "وارد حساب کاربری خود شوید" : "ثبت نام کنید"}
-            </h2>
+            <h2 className="text-center text-2xl font-bold text-gray-900 mb-6">{loginView ? "وارد حساب کاربری خود شوید" : "ثبت نام کنید"}</h2>
             <form className="space-y-6" onSubmit={formSubmitHandler}>
               {loginView ? (
                 <LogionComponent
@@ -114,10 +107,7 @@ export default function Login() {
               )}
               <div className="text-center text-sm">
                 {loginView ? "حساب کاربری نداری؟" : "حساب کاربری داری؟"}{" "}
-                <span
-                  className="text-red-600 cursor-pointer"
-                  onClick={changeLoginSignUpHandler}
-                >
+                <span className="text-red-600 cursor-pointer" onClick={changeLoginSignUpHandler}>
                   {loginView ? "یکی بساز" : "وارد شو"}
                 </span>
               </div>
