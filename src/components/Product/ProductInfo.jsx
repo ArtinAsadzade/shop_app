@@ -2,11 +2,11 @@ import { useParams } from "react-router-dom";
 import { decrypted } from "../../Utils";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { CheckIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
 export default function ProductInfo() {
-  const [activeColor, setActiveColor] = useState("blue");
+  const [activeColor, setActiveColor] = useState("");
   const decryptedData = decrypted("productsData");
   const params = useParams();
   const productData = decryptedData.find((item) => item.id == params.productId);
@@ -27,13 +27,18 @@ export default function ProductInfo() {
               </div>
               <div className="flex justify-between py-4 items-center">
                 <h3>انتخاب رنگ :</h3>
-                <div className="flex h-full">
+                <div className="flex items-center h-full">
                   {productData?.colors?.map((color) => (
                     <div
                       key={color}
-                      style={{ background: color }}
-                      className={`p-[10px] rounded-full mx-[2px] ${color === activeColor ? "ring-2 ring-white" : ""}`}
-                    ></div>
+                      onClick={() => setActiveColor(color)}
+                      style={{ background: color, boxShadow: `0px 0px 0px 1px ${color}` }}
+                      className={`h-full p-[10px] flex justify-center items-center rounded-full mx-[5px] border-2 ${
+                        color === activeColor ? "border-white" : "border-transparent"
+                      }`}
+                    >
+                      {color === activeColor ? <CheckIcon className="w-4 absolute text-white font-bold" /> : <></>}
+                    </div>
                   ))}
                 </div>
               </div>
@@ -65,10 +70,13 @@ export default function ProductInfo() {
           </div>
         </>
       ) : (
-        <>Loading</>
+        <>
+          <div>Loading</div>
+        </>
       )}
-
-      <Footer />
+      <div className="pb-20">
+        <Footer />
+      </div>
     </>
   );
 }
