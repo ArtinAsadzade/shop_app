@@ -33,7 +33,7 @@ export default function ProductInfo() {
                       key={color}
                       onClick={() => setActiveColor(color)}
                       style={{ background: color, boxShadow: `0px 0px 0px 1px ${color}` }}
-                      className={`h-full p-[10px] flex justify-center items-center rounded-full mx-[5px] border-2 ${
+                      className={`h-full p-[12px] flex justify-center items-center rounded-full mx-[5px] border-2 ${
                         color === activeColor ? "border-white" : "border-transparent"
                       }`}
                     >
