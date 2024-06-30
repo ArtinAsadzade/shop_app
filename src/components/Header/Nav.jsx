@@ -27,11 +27,11 @@ export default function Nav({ showNavBar, hamburgerHandler }) {
       ></div>
       <nav
         className={`fixed transition-all duration-300 z-50 lg:hidden top-0 right-0 bottom-0 flex-col w-5/6 max-w-sm py-5 px-6 bg-white border-r overflow-y-auto ${
-          showNavBar ? "flex" : "invisible opacity-0 translate-x-96"
+          showNavBar ? "flex visible opacity-100" : "invisible opacity-0 translate-x-96"
         }`}
       >
-        <XMarkIcon className="w-7 cursor-pointer text-red-600" onClick={hamburgerHandler} />
         <ul className="space-y-3">
+          <XMarkIcon className="w-7 cursor-pointer text-red-600" onClick={hamburgerHandler} />
           <li className="border-b w-full">
             <Logo />
             <BasketLoginNav />
