@@ -19,7 +19,7 @@ export default function LastOffer() {
           <img src="/images/a34.webp" alt="a34" className="sm:w-1/2 xl:hidden w-full rounded-xl" />
         </div>
         <Link
-          to={`/productInfo/${bigOfferProduct.id}`}
+          to={`/shop/product${bigOfferProduct.id}`}
           className="xl:w-2/3 w-full border-2 border-gray-300 bg-white flex flex-col items-center justify-center rounded-xl md:flex md:items-center md:flex-row"
         >
           <img src={bigOfferProduct.img} alt="" className="rounded-md md:w-1/3" />
