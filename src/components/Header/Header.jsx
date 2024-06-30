@@ -12,12 +12,9 @@ export default function Header() {
   };
   return (
     <div>
-      <header className="p-5 container">
+      <header className="p-5">
         <div className="flex items-center flex-wrap lg:flex-row lg:flex-1 justify-between">
-          <Bars3Icon
-            className="w-7 cursor-pointer lg:hidden text-red-600"
-            onClick={hamburgerHandler}
-          />
+          <Bars3Icon className="w-7 cursor-pointer lg:hidden text-red-600" onClick={hamburgerHandler} />
           <Logo />
           <SearchBar />
           <div className="hidden lg:block">
