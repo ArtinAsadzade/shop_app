@@ -19,7 +19,7 @@ export const routers = [
   { path: "/", element: <Main /> },
   { path: "/home", element: <Main /> },
   { path: "/shop", element: <Shop /> },
-  { path: "/productInfo/:productId", element: <ProductInfo /> },
+  { path: "/shop/:productId", element: <ProductInfo /> },
   { path: "/loginRegister", element: <Login /> },
   {
     path: "/admin",
