@@ -17,18 +17,19 @@ export default function Footer() {
   };
   return (
     <footer className="py-5 shadow-xl bg-white block">
-      <div className="p-5">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-5 gap-x-10 justify-items-center mb-10">
-          {navItems.map((item) => (
-            <FooterItems key={item.id} {...item} />
-          ))}
-        </div>
+      <div className="p-5 container">
         <div className="flex items-center justify-between my-4 px-5">
           <Logo />
           <button onClick={goToUpHandler} className="flex items-center gap-x-1 border rounded-lg px-3 py-2 text-zinc-500 text-sm md:text-base">
             برو به بالا <ChevronUpIcon className="w-5" />
           </button>
         </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-5 gap-x-10 justify-items-center mb-10">
+          {navItems.map((item) => (
+            <FooterItems key={item.id} {...item} />
+          ))}
+        </div>
+
         <div className="flex flex-wrap">
           <div className="w-full px-4 sm:w-2/3 lg:w-4/12">
             <div className="mx-auto flex flex-wrap">
