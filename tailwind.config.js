@@ -7,7 +7,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        vazir: "yekan",
+        yekan: "yekan",
       },
       keyframes: {
         "slide-in-right": {
