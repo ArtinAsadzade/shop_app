@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: "yekan";
-  src: url("/fonts/Vazir.ttf") format("truetype");
+  src: url("/fonts/irsans.ttf") format("truetype");
   font-weight: 900;
 }
 @font-face {
-  font-family: "yeka";
-  src: url("/fonts/Vazir-Bold.ttf") format("truetype");
+  font-family: "yekan";
+  src: url("/fonts/irsansb.ttf") format("truetype");
   font-weight: 900;
   font-style: bold;
 }
