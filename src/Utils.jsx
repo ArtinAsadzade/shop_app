@@ -1,10 +1,7 @@
 import CryptoJS from "crypto-js";
 
 export const encrypted = (data, key) => {
-  const encryptedData = CryptoJS.AES.encrypt(
-    JSON.stringify(data),
-    import.meta.env.VITE_SECRET_KEY
-  ).toString();
+  const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(data), import.meta.env.VITE_SECRET_KEY).toString();
   localStorage.setItem(key, encryptedData);
 };
 
@@ -12,10 +9,7 @@ export const decrypted = (key) => {
   const encryptedData = localStorage.getItem(key);
   if (encryptedData) {
     try {
-      const bytes = CryptoJS.AES.decrypt(
-        encryptedData,
-        import.meta.env.VITE_SECRET_KEY
-      );
+      const bytes = CryptoJS.AES.decrypt(encryptedData, import.meta.env.VITE_SECRET_KEY);
       return JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
     } catch (error) {
       localStorage.clear();
@@ -57,11 +51,7 @@ export const userLogin = (userName, userPassword) => {
   const decryptedData = decrypted("usersData");
 
   return decryptedData ? (
-    decryptedData.find(
-      (user) =>
-        userPassword === user.password &&
-        (user.email === userName || user.userName === userName)
-    )
+    decryptedData.find((user) => userPassword === user.password && (user.email === userName || user.userName === userName))
   ) : (
     <></>
   );
@@ -91,18 +81,22 @@ export const lastOfferProductHandler = () => {
   let highestDiscountPercentage = 0;
 
   for (const product of decryptedData) {
-    const discountPercentage = calculateDiscountPercentage(
-      product.price,
-      product.offerPrice
-    );
-    if (
-      typeof discountPercentage === "number" &&
-      discountPercentage > highestDiscountPercentage
-    ) {
+    const discountPercentage = calculateDiscountPercentage(product.price, product.offerPrice);
+    if (typeof discountPercentage === "number" && discountPercentage > highestDiscountPercentage) {
       highestDiscountPercentage = discountPercentage;
       bestOfferProduct = product;
     }
   }
 
   return bestOfferProduct || "هیچ محصولی با تخفیف یافت نشد";
+};
+
+export const extractBrands = (products) => {
+  const brandSet = new Set(); // یک Set برای نگه‌داری برندها
+  for (const product of products) {
+    brandSet.add(product.brand);
+  }
+  // تبدیل Set به آرایه
+  const uniqueBrands = Array.from(brandSet);
+  return uniqueBrands;
 };
