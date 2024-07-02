@@ -18,6 +18,8 @@ export const productsData = [
     count: 2,
     img: "/images/airpod.webp",
     desc: "ایرپاد پرو 2023 با کیفیت صدای عالی و طراحی ارگونومیک، مناسب برای هر موقعیت.",
+    category: ["هندزفری", "کالای دیجیتال"],
+    brand: "Iphone",
     propertys: [
       {
         title: "ضمانت بازگشت وجه",
@@ -36,6 +38,8 @@ export const productsData = [
     count: 9,
     img: "/images/Phone.webp",
     desc: "گوشی شیائومی نوت 12 پرو با عملکرد بالا و ویژگی‌های پیشرفته.",
+    category: ["گوشی", "کالای دیجیتال"],
+    brand: "Xiaomi",
     propertys: [
       {
         title: "ضد ضربه",
@@ -59,6 +63,8 @@ export const productsData = [
     count: 35,
     img: "/images/laptop.webp",
     desc: "لپتاپ گیمینگ ایسوس TUF با کارایی بالا و صفحه نمایش تاچ.",
+    category: ["لپتاپ", "کالای دیجیتال"],
+    brand: "Asus",
     propertys: [
       { title: "صفحه تاچ", desc: "صفحه نمایش لپتاپ ایسوس تاچ است.", icon: "" },
       {
@@ -78,6 +84,8 @@ export const productsData = [
     count: 11,
     img: "/images/tv.webp",
     desc: "تلویزیون سامسونگ QLED با کیفیت تصویر Full HD.",
+    category: ["تلویزیون", "کالای دیجیتال"],
+    brand: "Samsung",
     propertys: [
       {
         title: "صفحه نمایش",
@@ -85,7 +93,7 @@ export const productsData = [
         icon: "",
       },
     ],
-    colors: ["black"],
+    colors: ["black", "red"],
   },
   {
     id: 5,
@@ -96,6 +104,8 @@ export const productsData = [
     count: 30,
     img: "/images/rish.webp",
     desc: "ریش تراش با شانه‌های قابل تنظیم در سایزهای مختلف.",
+    category: ["زیبایی و سلامت"],
+    brand: "VGR",
     propertys: [
       {
         title: "شانه‌ها",
@@ -113,6 +123,8 @@ export const productsData = [
     count: 1,
     img: "/images/kap.webp",
     desc: "کاپشن با قابلیت حفظ دما تا 20 درجه.",
+    category: ["پوشاک"],
+    brand: "Milwaukee",
     propertys: [
       {
         title: "دمای داخل کاپشن",
@@ -131,6 +143,8 @@ export const productsData = [
     count: 20,
     img: "/images/Watch.webp",
     desc: "ساعت با طراحی زیبا و کیفیت بالا، مناسب برای استفاده روزمره و مجالس رسمی.",
+    category: ["ساعت", "کالای دیجیتال"],
+    brand: "Rolex",
     propertys: [
       { title: "جنس بند", desc: "چرم طبیعی", icon: "🟤" },
       { title: "مقاومت در برابر آب", desc: "تا عمق 50 متر", icon: "💧" },
