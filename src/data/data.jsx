@@ -215,13 +215,12 @@ export const brandsData = [
   { id: 5, title: "سونی" },
 ];
 
-export const orderedData = [
+export const orderingData = [
+  { id: 5, title: "جدیدترین" },
   { id: 1, title: "محبوب ترین" },
   { id: 2, title: "پرفروش ترین" },
   { id: 3, title: "ارزان ترین" },
   { id: 4, title: "گران ترین" },
-  { id: 5, title: "جدیدترین" },
-  { id: 6, title: "پربازدیدترین" },
 ];
 
 export const showNavBarData = false;
