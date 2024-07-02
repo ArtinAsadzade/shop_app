@@ -3,12 +3,13 @@ import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import Product from "../components/Product/Product";
 import { orderingData } from "../data/data";
-import { decrypted } from "../Utils";
+import { decrypted, extractBrands } from "../Utils";
 import { AdjustmentsVerticalIcon, FunnelIcon } from "@heroicons/react/24/outline";
 
 export default function Shop() {
   const [ordering, setOrdering] = useState("جدیدترین");
   const decryptedData = decrypted("productsData");
+  const brands = extractBrands(decryptedData);
 
   const changeOrderingProducts = useCallback(
     (activeOrdering) => {
@@ -27,7 +28,15 @@ export default function Shop() {
       <div className="mx-auto bg-slate-100 my-5 px-3">
         <div className="container grid grid-cols-12">
           <div className="flex w-full py-5 text-red-600 col-span-12 lg:col-span-3">
-            <div className="w-full cursor-pointer hover:shadow-md transition-all bg-white mx-3 p-2 rounded-lg hidden items-center justify-center lg:flex"></div>
+            <div className="w-full cursor-pointer hover:shadow-md transition-all bg-white mx-3 p-2 rounded-lg hidden lg:flex flex-col gap-3">
+              <h1>برند ها</h1>
+              {brands.map((brand) => (
+                <div key={brand} className="flex justify-between font-bold text-zinc-600 bg-slate-100 p-2 rounded-lg">
+                  <input type="checkbox" id={brand} value={brand} />
+                  <label htmlFor={brand}>{brand}</label>
+                </div>
+              ))}
+            </div>
 
             <div className="w-full cursor-pointer hover:shadow-md transition-all bg-white mx-3 p-2 rounded-lg flex items-center justify-center lg:hidden">
               <FunnelIcon className="w-5 mx-1" />
