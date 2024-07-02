@@ -25,9 +25,9 @@ export default function ProductInfo() {
                   </div>
                   <div className="sm:w-1/2 flex flex-col gap-5 p-3">
                     <div>
-                      <div className="w-full flex flex-col justify-center items-center sm:items-start sm:border-b-[1px] border-red-500 font-bold my-3 pb-3">
-                        <h1>{productData.ename}</h1>
-                        <h1>{productData.name}</h1>
+                      <div className="w-full flex flex-col justify-centersm:border-b-[1px] border-red-500 font-bold my-3 pb-3">
+                        <h1 className="text-center sm:text-left">{productData.ename}</h1>
+                        <h1 className="text-center sm:text-right">{productData.name}</h1>
                       </div>
                       <div className="font-bold hidden sm:block">
                         <p>درباره محصول :</p>
@@ -87,7 +87,7 @@ export default function ProductInfo() {
                         <p className={`${productData.offerPrice ? "text-zinc-400 line-through text-sm" : "text-black"}`}>{productData.price} تومان</p>
                         {productData.offerPrice ? <p>{productData.offerPrice} تومان</p> : <></>}
                       </div>
-                      <button className="w-full mt-5 flex gap-1 items-center justify-center bg-red-500 py-3 px-1 rounded-lg text-white text-sm">
+                      <button className="w-full mt-5 flex gap-1 items-center font-bold justify-center bg-red-500 py-3 px-1 rounded-lg text-white text-sm">
                         <ShoppingCartIcon className="w-5" />
                         افزودن به سبد خرید
                       </button>
