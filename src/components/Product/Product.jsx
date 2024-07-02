@@ -7,7 +7,7 @@ export default function Product(props) {
   return (
     <Link
       to={`/shop/product${props.id}`}
-      className="group col-span-12 cursor-pointer hover:scale-105 hover:shadow-2xl transition-all sm:col-span-6 md:col-span-4 lg:col-span-3 2xl:col-span-2 rounded-lg mb-10 mx-3 p-3 bg-white shadow-lg"
+      className="group col-span-12 cursor-pointer hover:scale-105 hover:shadow-2xl transition-all sm:col-span-6 md:col-span-4 rounded-lg mb-10 mx-3 p-3 bg-white shadow-lg"
     >
       <div className="w-full p-5 relative">
         <img src={props.img} alt="" className="w-full object-cover" />
@@ -15,15 +15,16 @@ export default function Product(props) {
           <span className="bg-red-600 text-white absolute px-2 py-1 rounded-xl text-sm sm:text-[18px] -top-2 -right-2">% {discount}</span>
         ) : null}
       </div>
-      <div className="flex flex-col w-full">
-        <p className="text-sm font-bold mb-5 block">{props.name}</p>
+      <div className="flex flex-col gap-3 w-full">
+        <p className="text-lg sm:text-sm text-left font-bold block">{props.ename}</p>
+        <p className="text-lg sm:text-sm text-right font-bold block">{props.name}</p>
         <div className="flex justify-between">
-          <div className={`flex justify-end text-sm font-bold ${props.offerPrice ? "line-through text-zinc-400" : ""}`}>
+          <div className={`flex justify-end text-lg sm:text-sm font-bold ${props.offerPrice ? "line-through text-zinc-400" : ""}`}>
             <p>{props.price}</p>
             <p>تومان</p>
           </div>
           {props.offerPrice ? (
-            <div className="flex justify-end mb-2 text-sm font-bold">
+            <div className="flex justify-end mb-2 text-lg sm:text-sm font-bold">
               <p>{props.offerPrice}</p>
               <p>تومان</p>
             </div>
