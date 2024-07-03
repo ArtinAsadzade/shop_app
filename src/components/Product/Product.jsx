@@ -20,12 +20,12 @@ export default function Product(props) {
         <p className="text-lg sm:text-sm text-right font-bold block">{props.name}</p>
         <div className="flex justify-between">
           <div className={`flex justify-end text-lg sm:text-sm font-bold ${props.offerPrice ? "line-through text-zinc-400" : ""}`}>
-            <p>{props.price}</p>
+            <p>{props.price.toLocaleString("EN")}</p>
             <p>تومان</p>
           </div>
           {props.offerPrice ? (
             <div className="flex justify-end mb-2 text-lg sm:text-sm font-bold">
-              <p>{props.offerPrice}</p>
+              <p>{props.offerPrice.toLocaleString("EN")}</p>
               <p>تومان</p>
             </div>
           ) : (
