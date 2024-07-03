@@ -29,10 +29,10 @@ export default function LastOffer() {
               <p className="text-zinc-400 text-md">{bigOfferProduct.ename}</p>
             </div>
             <div>
-              <h4 className="text-2xl text-center my-3 font-bold">{bigOfferProduct.offerPrice}</h4>
+              <h4 className="text-2xl text-center my-3 font-bold">{bigOfferProduct.offerPrice.toLocaleString("EN")}</h4>
               <div className="flex justify-center items-center">
                 <span className="text-red-500 text-sm font-bold mx-1">%{discount}</span>
-                <p className="text-zinc-400 text-sm mt-1 font-bold line-through text-center mx-1">{bigOfferProduct.price}</p>
+                <p className="text-zinc-400 text-sm mt-1 font-bold line-through text-center mx-1">{bigOfferProduct.price.toLocaleString("EN")}</p>
               </div>
             </div>
             <div className="m-4 grid grid-cols-2 justify-items-center">
