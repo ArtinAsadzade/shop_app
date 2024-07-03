@@ -5,7 +5,6 @@ export default function ModalContainer({ children, open, setOpen, className }) {
   const showHandler = useCallback(() => {
     setOpen(!open);
   }, [open, setOpen]);
-
   return (
     <div
       className={`w-full h-screen fixed top-0 z-50 left-0  backdrop-blur-sm flex justify-center items-center overflow-y-visible  transition-all duration-500 ${
