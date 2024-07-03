@@ -84,8 +84,10 @@ export default function ProductInfo() {
 
                     <div className="w-full">
                       <div className="flex items-center justify-between w-full font-bold text-sm">
-                        <p className={`${productData.offerPrice ? "text-zinc-400 line-through text-sm" : "text-black"}`}>{productData.price} تومان</p>
-                        {productData.offerPrice ? <p>{productData.offerPrice} تومان</p> : <></>}
+                        <p className={`${productData.offerPrice ? "text-zinc-400 line-through text-sm" : "text-black"}`}>
+                          {productData.price.toLocaleString("EN")} تومان
+                        </p>
+                        {productData.offerPrice ? <p>{productData.offerPrice.toLocaleString("EN")} تومان</p> : <></>}
                       </div>
                       <button className="w-full mt-5 flex gap-1 items-center font-bold justify-center bg-red-500 py-3 px-1 rounded-lg text-white text-sm">
                         <ShoppingCartIcon className="w-5" />
@@ -120,8 +122,10 @@ export default function ProductInfo() {
                 افزودن به سبد خرید <ShoppingCartIcon className="w-5" />
               </button>
               <div className="w-1/3 flex items-center justify-center flex-col font-bold">
-                {productData.offerPrice ? <p>{productData.offerPrice} تومان</p> : <></>}
-                <p className={`${productData.offerPrice ? "text-zinc-400 line-through text-sm" : "text-black"}`}>{productData.price} تومان</p>
+                {productData.offerPrice ? <p>{productData.offerPrice.toLocaleString("EN")} تومان</p> : <></>}
+                <p className={`${productData.offerPrice ? "text-zinc-400 line-through text-sm" : "text-black"}`}>
+                  {productData.price.toLocaleString("EN")} تومان
+                </p>
               </div>
             </div>
           </div>
