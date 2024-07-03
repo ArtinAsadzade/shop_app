@@ -7,7 +7,7 @@ export default function Product(props) {
   return (
     <Link
       to={`/shop/product${props.id}`}
-      className="group col-span-12 cursor-pointer hover:scale-105 hover:shadow-2xl transition-all sm:col-span-6 md:col-span-4 rounded-lg mb-10 mx-3 p-3 bg-white shadow-lg"
+      className="group col-span-12 cursor-pointer hover:scale-105 hover:shadow-2xl transition-all sm:col-span-6 md:col-span-4 2xl:col-span-3 rounded-lg mb-10 mx-3 p-3 bg-white shadow-lg"
     >
       <div className="w-full p-5 relative">
         <img src={props.img} alt="" className="w-full object-cover" />

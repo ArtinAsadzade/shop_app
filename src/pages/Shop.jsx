@@ -52,10 +52,6 @@ export default function Shop() {
                 ))}
               </div>
             </div>
-            {/* {decryptedData.map((item) => (
-              <Product key={item.id} {...item} />
-            ))} */}
-
             {filter.brand[0]
               ? decryptedData.filter((item) => filter.brand.includes(item.brand)).map((item) => <Product key={item.id} {...item} />)
               : decryptedData.map((item) => <Product key={item.id} {...item} />)}
