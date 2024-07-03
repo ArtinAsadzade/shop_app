@@ -16,9 +16,9 @@ export default function ProductOffer(props) {
 
         <div className="flex justify-center items-center">
           {discount ? <span className="text-zinc-400 rounded-xl text-sm sm:text-[18px] font-bold mx-2">{discount}%</span> : null}
-          <p className="text-sm text-zinc-400 mt-1 line-through text-center font-bold">{props.price}</p>
+          <p className="text-sm text-zinc-400 mt-1 line-through text-center font-bold">{props.price.toLocaleString("EN")}</p>
         </div>
-        <h4 className="text-md text-center text-bold font-bold">{props.offerPrice}</h4>
+        <h4 className="text-md text-center text-bold font-bold">{props.offerPrice.toLocaleString("EN")}</h4>
       </Link>
     )
   );
