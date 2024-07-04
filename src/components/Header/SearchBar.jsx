@@ -18,7 +18,7 @@ export default function SearchBar() {
   return (
     <div className="relative lg:w-1/2 mt-3 w-full">
       <input
-        placeholder="جستجو محصول ..."
+        placeholder="جستجو محصول ... "
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
