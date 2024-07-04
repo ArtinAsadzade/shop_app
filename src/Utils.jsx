@@ -74,7 +74,7 @@ export const lastOfferProductHandler = () => {
   const decryptedData = decrypted("productsData");
 
   if (!decryptedData || decryptedData.length === 0) {
-    return "هیچ محصولی یافت نشد";
+    return "";
   }
 
   let bestOfferProduct = null;
