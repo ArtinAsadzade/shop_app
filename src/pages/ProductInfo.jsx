@@ -18,10 +18,10 @@ export default function ProductInfo() {
         <>
           <div className="w-full  mx-auto bg-slate-100 py-3">
             <div className="container">
-              <div className="bg-white p-5 rounded-lg shadow-md ">
-                <div className="sm:flex sm:justify-between">
-                  <div className="flex justify-center sm:w-1/2">
-                    <img src={productData.img} alt="" />
+              <div className="bg-white p-5 rounded-lg shadow-md">
+                <div className="sm:flex sm:justify-between h-full">
+                  <div className="sm:w-1/3">
+                    <img src={productData.img} alt="" className="object-cover" />
                   </div>
                   <div className="sm:w-1/2 flex flex-col gap-5 p-3">
                     <div>
@@ -97,7 +97,7 @@ export default function ProductInfo() {
                   </div>
                 </div>
                 <div className="block">
-                  <h2 className="font-bold mt-16">ویژگی های کالا :</h2>
+                  <h2 className="font-bold mt-10">ویژگی های کالا :</h2>
                   <div className="w-full grid grid-cols-12 gap-5">
                     {productData?.propertys?.map((property) => (
                       <div
