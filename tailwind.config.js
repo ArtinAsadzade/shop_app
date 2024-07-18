@@ -6,6 +6,10 @@ export default {
       center: true,
     },
     extend: {
+      colors: {
+        primary: "#e03528",
+        secondary: "#FBFAF8",
+      },
       fontFamily: {
         yekan: "yekan",
       },
