@@ -30,7 +30,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap w-full">
           <div className="w-full px-4 sm:w-2/3 lg:w-4/12">
             <div className="mx-auto flex flex-wrap">
               <h1 className="mb-2 text-lg">فروشگاه اینترنتی ایران مارکت</h1>
@@ -59,19 +59,20 @@ export default function Footer() {
               <p className=" transition m-2">ساعت پاسخگویی:9 الی 18</p>
             </div>
           </div>
+
           <div className="w-full px-4 sm:w-1/2 lg:w-2/12">
-            <div>
-              <h1 className="mb-2 text-center">شبکه های اجتماعی:</h1>
-              <div className="mb-5 flex items-center justify-center">
-                {socials.map((item) => (
-                  <SocialItems key={item.id} {...item} />
-                ))}
-              </div>
-              <div className="flex items-center justify-center gap-x-5">
-                {namads.map((item) => (
-                  <NamadItems key={item.id} {...item} />
-                ))}
-              </div>
+            <div className="mb-5 flex flex-col items-start">
+              <h1 className="mb-2">شبکه های اجتماعی:</h1>
+              {socials.map((item) => (
+                <SocialItems key={item.id} {...item} />
+              ))}
+            </div>
+          </div>
+          <div className="w-full px-4 sm:w-1/2 lg:w-full">
+            <div className="flex items-center justify-start">
+              {namads.map((item) => (
+                <NamadItems key={item.id} {...item} />
+              ))}
             </div>
           </div>
         </div>
