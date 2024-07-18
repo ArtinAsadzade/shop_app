@@ -45,7 +45,7 @@ export default function Footer() {
             <div className="mb-10 w-full flex flex-col">
               <h1 className="mb-2">لینک های مفید:</h1>
               {links.map((item) => (
-                <a href={item.link} key={item.id} className="m-2 text-sm hover:text-red-600 transition ">
+                <a href={item.link} key={item.id} className="m-2 text-sm hover:text-primary transition ">
                   {item.title}
                 </a>
               ))}
