@@ -92,11 +92,10 @@ export const lastOfferProductHandler = () => {
 };
 
 export const extractBrands = (products) => {
-  const brandSet = new Set(); // یک Set برای نگه‌داری برندها
+  const brandSet = new Set();
   for (const product of products) {
     brandSet.add(product.brand);
   }
-  // تبدیل Set به آرایه
   const uniqueBrands = Array.from(brandSet);
   return uniqueBrands;
 };
