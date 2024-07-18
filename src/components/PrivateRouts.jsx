@@ -3,6 +3,7 @@ import TopBar from "../cms/components/TopBar";
 import SideBar from "../cms/components/SideBar";
 import { useEffect, useState } from "react";
 import { decrypted } from "../Utils";
+import Loading from "./Loading";
 
 export default function PrivateRouts() {
   const [user, setUser] = useState();
@@ -19,7 +20,7 @@ export default function PrivateRouts() {
   return (
     <>
       {loading ? (
-        <>loading</>
+        <Loading />
       ) : user.perm ? (
         <>
           <TopBar />{" "}
