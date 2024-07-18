@@ -33,7 +33,7 @@ export default function Nav({ showNavBar, hamburgerHandler }) {
         <ul className="space-y-3">
           <li className="flex justify-between">
             <Logo />
-            <XMarkIcon className="w-7 cursor-pointer text-red-600" onClick={hamburgerHandler} />
+            <XMarkIcon className="w-7 cursor-pointer text-primary" onClick={hamburgerHandler} />
           </li>
           <li className="border-b w-full py-2">
             <BasketLoginNav />
