@@ -5,11 +5,12 @@ import { calculateDiscountPercentage, lastOfferProductHandler } from "../../Util
 export default function LastOffer() {
   const bigOfferProduct = lastOfferProductHandler();
   const discount = calculateDiscountPercentage(bigOfferProduct.price, bigOfferProduct.offerPrice);
+
   return (
     <div className="container">
       <div className="flex justify-between px-5 py-5 rounded-xl items-center mt-3 mb-5 bg-white">
-        <h2 className="text-sm lg:text-lg border-b-2 border-red-600 ">آخرین پیشنهاد</h2>
-        <Link to="/shop" className="flex items-center  text-red-600 text-sm">
+        <h2 className="text-sm lg:text-lg border-b-2 border-primary ">آخرین پیشنهاد</h2>
+        <Link to="/shop" className="flex items-center  text-primary text-sm">
           دیدن همه <ArrowLeftIcon className="w-4 mt-1" />
         </Link>
       </div>
@@ -31,7 +32,7 @@ export default function LastOffer() {
             <div>
               <h4 className="text-2xl text-center my-3 font-bold">{bigOfferProduct.offerPrice.toLocaleString("EN")}</h4>
               <div className="flex justify-center items-center">
-                <span className="text-red-500 text-sm font-bold mx-1">%{discount}</span>
+                <span className="text-primary text-sm font-bold mx-1">%{discount}</span>
                 <p className="text-zinc-400 text-sm mt-1 font-bold line-through text-center mx-1">{bigOfferProduct.price.toLocaleString("EN")}</p>
               </div>
             </div>
@@ -42,7 +43,7 @@ export default function LastOffer() {
                 </p>
               ))}
             </div>
-            <div className="flex mx-auto my-3 justify-center items-center rounded-md p-2 bg-red-100 text-red-600 w-1/4 font-bold">
+            <div className="flex mx-auto my-3 justify-center items-center rounded-md p-2 bg-red-100 text-primary w-1/4 font-bold">
               <p className="m-1">11</p>:<p className="m-1">22</p>:<p className="m-1">33</p>
             </div>
           </div>

@@ -12,7 +12,7 @@ export default function Product(props) {
       <div className="w-full p-5 relative">
         <img src={props.img} alt="" className="w-full object-cover" />
         {discount ? (
-          <span className="bg-red-600 text-white absolute px-2 py-1 rounded-xl text-sm sm:text-[18px] -top-2 -right-2">% {discount}</span>
+          <span className="bg-primary text-white absolute px-2 py-1 rounded-xl text-sm sm:text-[18px] -top-2 -right-2">% {discount}</span>
         ) : null}
       </div>
       <div className="flex flex-col gap-3 w-full">
@@ -32,7 +32,7 @@ export default function Product(props) {
             <></>
           )}
         </div>
-        <div className="w-full border-t-[1px] group-hover:border-red-600 mt-2 text-red-600 font-bold py-3 flex items-center justify-center">
+        <div className="w-full border-t-[1px] group-hover:border-primary mt-2 text-primary font-bold py-3 flex items-center justify-center">
           مشاهده و خرید
         </div>
       </div>

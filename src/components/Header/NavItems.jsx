@@ -11,30 +11,17 @@ export default function NavItems(props) {
           className={`flex justify-between items-center h-10 leading-10 text-sm opacity-90 px-3 cursor-pointer no-underline w-full hover:no-underline duration-100 mx-1 transition rounded-xl hover:bg-red-100`}
         >
           {props.title}
-          {props.subPage && (
-            <ChevronDownIcon className="w-3 mx-0.5 text-red-600" />
-          )}
+          {props.subPage && <ChevronDownIcon className="w-3 mx-0.5 text-primary" />}
         </Link>
       </li>
       <li
-        className={`hidden lg:block ${
-          userLocation.pathname.toLowerCase() === props.link
-            ? "border-b-2 border-red-600"
-            : ""
-        }${
-          userLocation.pathname.toLowerCase() === "/" && props.active
-            ? "border-b-2 border-red-600"
-            : ""
+        className={`hidden lg:block ${userLocation.pathname.toLowerCase() === props.link ? "border-b-2 border-primary" : ""}${
+          userLocation.pathname.toLowerCase() === "/" && props.active ? "border-b-2 border-primary" : ""
         }`}
       >
-        <Link
-          to="/home"
-          className={`text-slate-600 flex mx-4 my-2 hover:text-red-600 text-sm xl:text-sm`}
-        >
+        <Link to="/home" className={`text-slate-600 flex mx-4 my-2 hover:text-primary text-sm xl:text-sm`}>
           {props.title}
-          {props.subPage && (
-            <ChevronDownIcon className="w-3 mx-0.5 text-red-600" />
-          )}
+          {props.subPage && <ChevronDownIcon className="w-3 mx-0.5 text-primary" />}
         </Link>
       </li>
     </>

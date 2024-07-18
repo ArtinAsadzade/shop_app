@@ -23,9 +23,9 @@ export default function SearchBar() {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         id="search-input"
-        className="pl-10 w-full px-4 py-3 text-sm placeholder:text-red-600 rounded-2xl text-right placeholder:text-sm border-2 border-red-600 focus:outline-none focus:ring-1 ring-red-500 focus:border-red-400"
+        className="pl-10 w-full px-4 py-3 text-sm placeholder:text-primary rounded-2xl text-right placeholder:text-sm border-2 border-primary focus:outline-none focus:ring-1 ring-primary focus:border-red-400"
       />
-      <MagnifyingGlassIcon className="w-5 text-red-600 absolute top-1/2 -translate-y-1/2 left-4" />
+      <MagnifyingGlassIcon className="w-5 text-primary absolute top-1/2 -translate-y-1/2 left-4" />
       {value.length ? (
         <div className="absolute w-full h-full bg-white shadow-lg border-[1px] mt-2 z-50 rounded-2xl">
           <div className="w-full h-full p-3">{search.length ? search.map((item) => <SearchProduct key={item.id} {...item} />) : <NotFound />}</div>
