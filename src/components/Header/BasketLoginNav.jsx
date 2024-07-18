@@ -1,9 +1,4 @@
-import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-  ShoppingCartIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+import { ChevronDownIcon, ChevronUpIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/outline";
 import { useCallback, useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import YesOrNo from "../YesOrNo";
@@ -56,7 +51,7 @@ export default function BasketLoginNav() {
           className="cursor-pointer justify-center relative lg:justify-start flex items-center h-10 leading-10 px-3 mx-1 transition rounded-xl hover:bg-red-50"
           onClick={loginPageHandler}
         >
-          <UserIcon className="w-5 ml-2 text-red-600" />
+          <UserIcon className="w-5 ml-2 text-primary" />
           {!user ? (
             <p className="text-sm opacity-95">ورود | ثبت نام</p>
           ) : (
@@ -64,11 +59,7 @@ export default function BasketLoginNav() {
               <p className="text-sm opacity-95">
                 {user.firstName} {user.lastName}
               </p>
-              {subMenu ? (
-                <ChevronUpIcon className="w-4 text-red-600 mx-1" />
-              ) : (
-                <ChevronDownIcon className="w-4 text-red-600 mx-1" />
-              )}
+              {subMenu ? <ChevronUpIcon className="w-4 text-primary mx-1" /> : <ChevronDownIcon className="w-4 text-primary mx-1" />}
               <div
                 className={`${
                   subMenu ? "block" : "hidden"
@@ -101,9 +92,9 @@ export default function BasketLoginNav() {
           )}
         </div>
         <div className="cursor-pointer justify-center lg:justify-start flex items-center h-10 leading-10 px-3 mx-1 transition rounded-xl hover:bg-red-50">
-          <ShoppingCartIcon className="w-5 ml-2 text-red-600" />
+          <ShoppingCartIcon className="w-5 ml-2 text-primary" />
           <p className="text-sm opacity-95">سبد خرید</p>
-          <ChevronDownIcon className="w-4 text-red-600 mx-1" />
+          <ChevronDownIcon className="w-4 text-primary mx-1" />
         </div>
       </div>
     </>
