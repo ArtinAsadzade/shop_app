@@ -10,6 +10,7 @@ import { encrypted } from "./Utils";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import YesOrNo from "./components/YesOrNo";
 import FilterProvider from "./context/FiltersContext";
+import OrderingProvider from "./context/OrderingContext";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -45,16 +46,18 @@ function App() {
         <ProductDataProvider>
           <ShowSideBarProvider>
             <FilterProvider>
-              <YesOrNo
-                desc={`در صورت پیش اومدن هرگون مشکل مانند لود نشدن محصولات(مشخصات, قیمت و...), لو نشدن کاربر ها و... از دکمه ریست سمت چپ صفحه استفاده کنید!`}
-                button={false}
-                show={show}
-                setShow={setShow}
-              />
-              <div className="fixed z-50 p-2 rounded-sm left-0 top-36 bg-red-500 cursor-pointer" onClick={resetDataHandler}>
-                <ArrowPathIcon className="w-5 text-white " />
-              </div>
-              {router}
+              <OrderingProvider>
+                <YesOrNo
+                  desc={`در صورت پیش اومدن هرگون مشکل مانند لود نشدن محصولات(مشخصات, قیمت و...), لو نشدن کاربر ها و... از دکمه ریست سمت چپ صفحه استفاده کنید!`}
+                  button={false}
+                  show={show}
+                  setShow={setShow}
+                />
+                <div className="fixed z-50 p-2 rounded-sm left-0 top-36 bg-primary cursor-pointer" onClick={resetDataHandler}>
+                  <ArrowPathIcon className="w-5 text-white " />
+                </div>
+                {router}
+              </OrderingProvider>
             </FilterProvider>
           </ShowSideBarProvider>
         </ProductDataProvider>
