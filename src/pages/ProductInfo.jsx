@@ -20,10 +20,17 @@ export default function ProductInfo() {
         <>
           <div className="w-full  mx-auto bg-slate-100 py-3">
             <div className="container">
+<<<<<<< HEAD
               <div className="bg-white p-5 rounded-lg shadow-md ">
                 <div className="md:flex md:justify-between">
                   <div className="flex justify-center md:w-1/2">
                     <img src={productData.img} alt="" />
+=======
+              <div className="bg-white p-5 rounded-lg shadow-md">
+                <div className="sm:flex sm:justify-between h-full">
+                  <div className="sm:w-1/3">
+                    <img src={productData.img} alt="" className="object-cover" />
+>>>>>>> 40f3e8bb5b98ac2c9e44594289826a1c7c187c41
                   </div>
                   <ProductInfoHeader productData={productData} activeColor={activeColor} setActiveColor={setActiveColor} />
                   <div className="hidden lg:flex bg-slate-100 w-1/3 rounded-lg flex-col items-center justify-between p-2 md:p-4">
@@ -57,7 +64,7 @@ export default function ProductInfo() {
                   </div>
                 </div>
                 <div className="block">
-                  <h2 className="font-bold mt-16">ویژگی های کالا :</h2>
+                  <h2 className="font-bold mt-10">ویژگی های کالا :</h2>
                   <div className="w-full grid grid-cols-12 gap-5">
                     {productData?.propertys?.map((property) => (
                       <div
